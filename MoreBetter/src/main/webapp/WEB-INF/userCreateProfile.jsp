@@ -11,24 +11,23 @@
 <br>
 <h2> Tell us about yourself!</h2>
 <br>
-Fields with * are mandatory
+Fields with * are mandatory (incorrect)
 <br>
 	<form action="userCreateProfile.do" method="POST">
 	
 	Create a User Name:
-	<input type="text" name="username" placeholder="type in a username, and we'll let you know if its already taken">*
+	<input type="text" name="username" >
 	
 	Enter a Password:
-	<input type="text" name="password" placeholder="Create a password">*
+	<input type="text" name="password" >
 	
 	Your First Name:
-	<input type="text" name="firstName" placeholder="enter your first name">*
+	<input type="text" name="firstName"> 
 	
 	Your Last Name:
-	<input type="text" name="lastName" placeholder="enter your last name">*
-	
+	<input type="text" name="lastName"> 
 	Your Email Address:
-	<input type="text" name="email" placeholder="enter your email">*
+	<input type="text" name="email" >
 	
 	i think this is fucked the fuck up...
 	<br> Are you applying to be a mentor?:
@@ -37,13 +36,13 @@ Fields with * are mandatory
 						<option value="No">No</option>
 					</select><br>
 	<br> Age:
-	<input type="number" name="age" placeholder="Enter your age">*
+	<input type="number" name="age">
 	
 	Tell us About yourself:
-	<input type="text" name="biography" placeholder="Tell us your story!">
+	<input type="text" name="biography" >
 	
 	<br><br> Insert a Photo:
-	<input type="text" name="picture" placeholder="enter URL for image">
+	<input type="text" name="picture"> 
 <br>
 	<input type="submit" value="reCreate Yourself" />
 </form>
