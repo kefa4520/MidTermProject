@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-category Article display
-
-<-- when an article is clicked on, it displays the full article with all article information here-->
+User login
 </body>
 </html>
