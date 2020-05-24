@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -19,25 +21,31 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
+	
+	@Size(min=2, max=25)
 	@Column(name = "first_name")
 	private String firstName;
-
+	
+	@Size(min=2, max=50)
 	@Column(name = "last_name")
 	private String lastName;
-
+	
+	@Email(message = "Please enter a valid email address")
 	private String email;
 	
 	@Enumerated(EnumType.STRING)
 	private Role role;
-
+	
+	@Size(min=1, max=120, message = "Please enter an appropriate age")
 	private Integer age;
 
+	@Size(min=7, max=20, message= "Username must be between 7 and 20 characters")
 	private String username;
 
+	@Size(min=6, max=35, message="Your password MUST be longer than 6 characters")
 	private String password;
 
-	private int enabled;
+	private Boolean enabled;
 
 	private String picture;
 
@@ -278,11 +286,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getEnabled() {
+	public Boolean getEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(int enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -311,7 +319,7 @@ public class User {
 	}
 
 	public User(String firstName, String lastName, String email, Role role, Integer age, String username,
-			String password, Integer enabled, String picture, String biography) {
+			String password, Boolean enabled, String picture, String biography) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;

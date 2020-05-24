@@ -26,10 +26,10 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-//	@RequestMapping(path= )
-//	public String userPage() {
-//		return "";
-//	}
+	@RequestMapping(path="userLogin.do")
+	public String userLoginPage() {
+		return "userlogin";
+	}
 	
 	
 
