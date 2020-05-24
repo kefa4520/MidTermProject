@@ -34,6 +34,9 @@ dependencies {
   compile "org.hibernate:hibernate-core:$hibernateVersion"
   compile "org.hibernate:hibernate-c3p0:$hibernateVersion"
   testImplementation("org.junit.jupiter:junit-jupiter:$junit5Version")
+  // Annotation dependencies:
+  compile group: 'org.hibernate.validator', name: 'hibernate-validator', version:'6.0.16.Final'
+  testCompile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b11'
 }
 test {
     useJUnitPlatform()

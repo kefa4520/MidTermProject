@@ -31,12 +31,12 @@ public class HomeController {
 	}
 
 	
-	@RequestMapping(path= "articlePage.do")
+	@RequestMapping(path= "categoryPage.do")
 	public ModelAndView genericCategoryPage(Integer id) {
 		ModelAndView mv = new ModelAndView();
 		Category category = categoryDao.findCategoryById(id);
 		mv.addObject("category", category);
-		mv.setViewName("articlePage");
+		mv.setViewName("categoryDisplayPage");
 		return mv;
 	}
 	
