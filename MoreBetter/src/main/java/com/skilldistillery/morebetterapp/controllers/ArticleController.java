@@ -22,8 +22,11 @@ public class ArticleController {
 	
 	@Autowired
 	private ArticleDAO articleDao;
+	@Autowired
 	private CategoryDAO categoryDao;
+	@Autowired
 	private EventDAO eventDao;
+	@Autowired
 	private UserDAO userDao;
 	
 //	@RequestMapping(path= )
@@ -33,9 +36,9 @@ public class ArticleController {
 
 	//------------------------------------------FIND ARTICLE-----------------------------------------------------//
 	
-	@RequestMapping(path = "getArticle.do", params = "id") // takes id inputed by user/looks up event
-	public String findArticle(@RequestParam("id") Integer aId, Model model) {
-		Article article = articleDao.findArticleById(aId);
+	@RequestMapping(path = "getArticle.do") // takes id inputed by user/looks up event
+	public String findArticle(Integer id, Model model) {
+		Article article = articleDao.findArticleById(id);
 			model.addAttribute("article", article);
 			return "FIXME"; //JSP for Article found
 
@@ -45,7 +48,7 @@ public class ArticleController {
 	
 	
 	//------------------------------------------ADD ARTICLE-----------------------------------------------------//
-	@RequestMapping(path = "addArticle.do", method = RequestMethod.GET)
+	@RequestMapping(path = "addArticle.do")
 	public ModelAndView goToAddArticlePage() throws SQLException { // addArticle view page for mentor to input data
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("FIXME");                    //JSP for article view
@@ -72,7 +75,7 @@ public class ArticleController {
 	
 	
 	@RequestMapping(path = "updateArticle.do", method = RequestMethod.POST)
-	public ModelAndView updateTrip(int id, Article article) throws SQLException {  //requestParam deleted, might have to put it back
+	public ModelAndView updateArticle(int id, Article article) throws SQLException {  //requestParam deleted, might have to put it back
 		ModelAndView mv = new ModelAndView();
 			mv.addObject("article", articleDao.updateArticle(id, article));
 			mv.setViewName("FIXME");    //JSP for updating article
@@ -83,7 +86,7 @@ public class ArticleController {
 	
 	//------------------------------------------DELETE ARTICLE-----------------------------------------------------//
 	
-	@RequestMapping(path = "deleteArticle.do", method = RequestMethod.GET)
+	@RequestMapping(path = "deleteArticle.do")
 	public ModelAndView deleteArticleViewPage() throws SQLException { // delete article view page for mentor
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("FIXME");     //JSP view for mentor to delete articles
@@ -93,7 +96,7 @@ public class ArticleController {
 	}
 	
 	@RequestMapping(path = "deleteArticle.do", method = RequestMethod.POST)
-	public ModelAndView deleteTrip(int id) throws SQLException { 
+	public ModelAndView deleteArticle(int id) throws SQLException { 
 
 		ModelAndView mv = new ModelAndView();
 		articleDao.deleteArticleById(id);
