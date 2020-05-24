@@ -15,38 +15,21 @@
 <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-	<div class="">
 
-		<h1 id="heading">MoreBetter</h1>
+<form action="getCategory.do" method="GET">
+    <input type="hidden" name="id" value="1"/><br>
+     <input type="submit" value="Finance"/>
+</form>
 
-		<h3>Your Life Is Bigger Than Your Problems</h3>
+<form action="articlePage.do" method="GET">
+    <input type="hidden" name="id" value="1"/><br>
+     <input type="submit" value="Mental Health"/>
+</form>
 
-	</div>
-	<div class="row" align="center">
-		<form method="GET" action="https://trello.com/b/d65CsPp2/morebetter">
-			<div class="finance">
-				<input type="image" name="submit"
-					src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/whatsapp/238/bank_1f3e6.png" />
-				<c:url value="/mypage.jsp" var="completeURL">
-					<c:param name="id" value="1" />
-				</c:url>
-				${completeURL}
-			</div>
-			<div class="mind">
-				<input type="image" name="submit"
-					src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/emojidex/112/brain_1f9e0.png" />
-			</div>
-			<div class="heart">
-				<input type="image" name="submit"
-					src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/heavy-black-heart_2764.png" />
-			</div>
-		</form>
-	</div>
+<form action="articlePage.do" method="GET">
+    <input type="hidden" name="id" value="1"/><br>
+     <input type="submit" value="Fitness"/>
+</form>
 
-	<div class="event-button">
-		<form method="GET" action="https://trello.com/b/d65CsPp2/morebetter">
-			<input type="submit" name="articleid" value="List of Events" />
-		</form>
-	</div>
 </body>
 </html>

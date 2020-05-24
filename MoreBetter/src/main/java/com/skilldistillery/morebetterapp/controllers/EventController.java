@@ -21,8 +21,11 @@ public class EventController {
 
 	@Autowired
 	private ArticleDAO articleDao;
+	@Autowired
 	private CategoryDAO categoryDao;
+	@Autowired
 	private EventDAO eventDao;
+	@Autowired
 	private UserDAO userDao;
 	
 //	@RequestMapping(path= )
@@ -31,9 +34,9 @@ public class EventController {
 //	}
 	//------------------------------------------FIND EVENT-----------------------------------------------------//
 	
-	@RequestMapping(path = "getEvent.do", params = "id") // takes id inputed by user/looks up event
-	public String findEvent(@RequestParam("id") Integer eId, Model model) {
-		Event event = eventDao.findEventById(eId);
+	@RequestMapping(path = "getEvent.do") // takes id inputed by user/looks up event
+	public String findEvent(Integer id, Model model) {
+		Event event = eventDao.findEventById(id);
 			model.addAttribute("event", event);
 
 			return "FIXME"; //JSP for Event found
@@ -46,7 +49,7 @@ public class EventController {
 	
 	//------------------------------------------ADD EVENT-----------------------------------------------------//
 	
-	@RequestMapping(path = "addEvent.do", method = RequestMethod.GET)
+	@RequestMapping(path = "addEvent.do")
 	public ModelAndView goToAddEventPage() throws SQLException { // addEvent view page for mentor to input data
 		ModelAndView mv = new ModelAndView(); 
 		mv.setViewName("FIXME");     //JSP for adding an event view
@@ -73,7 +76,7 @@ public class EventController {
 	//------------------------------------------UPDATE EVENT-----------------------------------------------------//
 	
 	
-	@RequestMapping(path = "updateEvent.do", params = "id", method = RequestMethod.POST)
+	@RequestMapping(path = "updateEvent.do")
 	public ModelAndView updateEvent(int id, Event event) throws SQLException {
 																									
 		ModelAndView mv = new ModelAndView();
@@ -97,7 +100,7 @@ public class EventController {
 
 	}
 	
-	@RequestMapping(path = "deleteEvent.do", params = "id", method = RequestMethod.POST)
+	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.POST)
 	public ModelAndView deleteEvent(int id) throws SQLException { 
 
 		ModelAndView mv = new ModelAndView();

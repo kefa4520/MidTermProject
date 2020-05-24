@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.morebetterapp.entities.Category;
 import com.skilldistillery.morebetterapp.entities.User;
 
 @Service
@@ -18,7 +19,7 @@ public class UserDAOImpl implements UserDAO {
 	public User findUserById(int id) {
 		return em.find(User.class, id);
 	}
-
+	
 	@Override
 	public User createUser(User user) {
 		em.persist(user);
@@ -51,5 +52,7 @@ public class UserDAOImpl implements UserDAO {
 		em.flush();
 		return updatedUser;
 	}
+	
+
 
 }

@@ -17,8 +17,11 @@ public class CategoryController {
 
 	@Autowired
 	private ArticleDAO articleDao;
+	@Autowired
 	private CategoryDAO categoryDao;
+	@Autowired
 	private EventDAO eventDao;
+	@Autowired
 	private UserDAO userDao;
 	
 //	@RequestMapping(path= )
@@ -26,12 +29,12 @@ public class CategoryController {
 //		return "";
 //	}
 	
-	//------------------------------------------FIND BY ID CATEGORY-----------------------------------------------------//
+	//------------------------------------------FIND CATEGORY BY ID-----------------------------------------------------//
 	
 	
-	@RequestMapping(path = "getCategory.do", params = "id") // takes id inputed by user/looks up category
-	public String findCategoryById(@RequestParam("id") Integer cId, Model model) {
-		Category category = categoryDao.findCategoryById(cId);
+	@RequestMapping(path = "getCategory.do") // takes id inputed by user/looks up category
+	public String findCategoryById(Integer id, Model model) {
+		Category category = categoryDao.findCategoryById(id);
 			model.addAttribute("category", category);
 
 			return "FIXME"; //JSP for category found by id
@@ -40,50 +43,50 @@ public class CategoryController {
 	
 	//------------------------------------------FIND BY ID CATEGORY-----------------------------------------------------//
 	
-	
-	//------------------------------------------FIND BY NAME CATEGORY-----------------------------------------------------//
-	
-	
-	@RequestMapping(path = "getCategory.do", params = "name") // takes id inputed by user/looks up category
-	public String findCategoryByName(String name, Model model) {
-		Category category = categoryDao.findCategoryByName(name);
-			model.addAttribute("category", category);
-
-			return "FIXME"; //JSP for category found by name
-		} 
-	
-	
-	
-	//------------------------------------------FIND BY NAME CATEGORY-----------------------------------------------------//
-	
-	
-	//--------------------------------------- DISPLAY EVENTS BY CATEGORY--------------------------------------------------//
-	
-	
-	
-	@RequestMapping(path = "getCategory.do", params = "id") // takes id inputed by user/looks up category
-	public String findCategoryByName(@RequestParam("name") Integer cId, Model model) {
-		
-			model.addAttribute("eventsByCategory", categoryDao.displayAllEventsByCategory(cId));
-
-			return "FIXME"; //JSP for list of events found
-		
-	}
-	
-	//--------------------------------------- DISPLAY EVENTS BY CATEGORY--------------------------------------------------//
-	//--------------------------------------- DISPLAY ARTICLE BY CATEGORY--------------------------------------------------//
-	
-	
-	
-	@RequestMapping(path = "getCategory.do", params = "id") // takes id inputed by user/looks up category
-	public String displayAllArticlesByCategory(@RequestParam("name") Integer cId, Model model) {
-		
-		model.addAttribute("articlesByCategory", categoryDao.displayAllArticlesByCategory(cId));
-		
-		return "FIXME"; //JSP for list of events found
-		
-	}
-	
-	//--------------------------------------- DISPLAY ARTICLE BY CATEGORY--------------------------------------------------//
-	
+//	
+//	//------------------------------------------FIND CATEGORY BY NAME-----------------------------------------------------//
+//	
+//	
+//	@RequestMapping(path = "getCategory.do") // takes id inputed by user/looks up category
+//	public String findCategoryByName(String name, Model model) {
+//		Category category = categoryDao.findCategoryByName(name);
+//			model.addAttribute("category", category);
+//
+//			return "FIXME"; //JSP for category found by name
+//		} 
+//	
+//	
+//	
+//	//------------------------------------------FIND CATEGORY BY NAME-----------------------------------------------------//
+//	
+//	
+//	//--------------------------------------- DISPLAY EVENTS BY CATEGORY--------------------------------------------------//
+//	
+//	
+//	
+//	@RequestMapping(path = "getCategory.do") // takes id inputed by user/looks up category
+//	public String findEventByCatId(Integer id, Model model) {
+//		
+//			model.addAttribute("eventsByCategory", categoryDao.displayAllEventsByCategory(id));
+//
+//			return "FIXME"; //JSP for list of events found
+//		
+//	}
+//	
+////	//--------------------------------------- DISPLAY EVENTS BY CATEGORY--------------------------------------------------//
+////	//--------------------------------------- DISPLAY ARTICLE BY CATEGORY--------------------------------------------------//
+//	
+//	
+//	
+//	@RequestMapping(path = "getCategory.do") // takes id inputed by user/looks up category
+//	public String displayAllArticlesByCategory(Integer id, Model model) {
+//		
+//		model.addAttribute("articlesByCategory", categoryDao.displayAllArticlesByCategory(id));
+//		
+//		return "FIXME"; //JSP for list of events found
+//		
+//	}
+//	
+////	//--------------------------------------- DISPLAY ARTICLE BY CATEGORY--------------------------------------------------//
+//	
 }
