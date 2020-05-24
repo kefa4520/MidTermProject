@@ -4,61 +4,144 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style/style.css">
-<title>Look at YOU!</title>
+<title>Update Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <jsp:include page="navbar.jsp"/>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
 
-<a href="/" button type="button" class="btn btn-outline-primary">Home</a>
-<br>
-<br>
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.saveProfileChangesbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.saveProfileChangesbtn:hover {
+  opacity: 1;
+}
+
+/* Set a style for the submit button */
+.deletebtn {
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
 </head>
 <body>
-	<br>User ID : ${user.id}
-	<br>
-	<br>
 
-	<form action="updateProfile.do" method="POST">
+<form action="updateProfile.do">
+  <div class="container">
+    <h1>Update Your Profile</h1>
+    <p>Update your profile here.</p>
+     <p>Fields with a * are required.</p>
+    <hr>
 
-		User Name<br> <input type="text" name="username"
-			value="${user.username}" /><br>
-			
-		Password<br> <input type="text" name="password"
-			value="${user.password}" /><br>			
-		
-		First Name<br> <input type="text" name="firstName"
-			value="${user.firstName}" /><br>
-			
-		Last Name<br> <input type="text" name="lastName"
-			value="${user.lastName}" /><br>
-			
-		Email Address<br> <input type="text" name="email"
-			value="${user.email}" /><br>
-				
-		Mentor Status<br> <input type="text" name="role"
-			value="${user.role}" /><br>	
-			
-		Age><br> <input type="number" name="age"
-			value="${user.age}" /><br>	
-			
-		Biography<br> <input type="text" name="biography"
-			value="${user.biography}" /><br>	
-				
-		Photo<br> <input type="text" name="picture"
-			value="${user.picture}" /><br>	
+    <label for= "Username" ><b>Username</b></label> 
+    <input type="text"placeholder="enter username"  name="username" 	value="${user.username}" required><br>
+    
+    <label for= "Password" ><b>Password</b></label> 
+    <input type="text"placeholder="enter Password"  name="password" 	value="${user.password}" required><br>
+    
+    <label for= "firstName" ><b>First Name</b></label> 
+    <input type="text"placeholder="enter firstName"  name="firstName" 	value="${user.firstName}" required><br>
+    
+    <label for= "lastName" ><b>Last Name</b></label> 
+    <input type="text"placeholder="enter last name"  name="lastName" 	value="${user.lastName}" required><br>
+    
+      <label for= "email" ><b>Email Address</b></label> 
+    <input type="text"placeholder="enter email"  name="email" 	value="${user.lastNemailame}" required><br>
+    
+      <label for= "role" ><b>Applying to be a Mentor?</b></label> 
+    <input type="text"placeholder="yes or no"  name="role" 	value="${user.role}" required><br>
+    
+      <label for= "age" ><b>Age</b></label> 
+    <input type="text"placeholder="enter age"  name="age" 	value="${user.age}" required><br>
+    
+      <label for= "lastName" ><b>Last Name</b></label> 
+    <input type="text"placeholder="enter last name"  name="lastName" 	value="${user.lastName}" required><br>
+    
+      <label for= "biography" ><b>Tell us about yourself</b></label> 
+    <input type="text"placeholder="enter biography"  name="biography" 	value="${user.biograpgy}" required><br>
+            
+    
+    
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    <button type="submit" class="saveProfileChangesbtn">Save Profile Changes for ${user.username}</button>
+  </div>
+
+</form>
+<div>
+<form action="destroyProfile.do" method="POST">
+        <input type="hidden" value="${user.id}"/> 
+        <button type="submit" class="deletebtn">Delete ${user.name}</button>
 	
-	</form>
-	<br>
-	<br>
-	<form action="destroyProfile.do" method="POST">
-		<strong><em>${user.name}</em></strong> <input type="hidden"
-			 value="${user.id}" /> <input type="submit" button type="button" value="Delete Yourself"/>
-	</form>
-	<br>
-	<br>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+          </div>   
+</form>
 </body>
 </html>

@@ -18,8 +18,9 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="userLogin.do"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
+        <li><a href="userCreateProfile.do"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>
         <li><a href="userLogin.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="updateProfile.do"><span class="glyphicon glyphicon-log-in"></span> Profile</a></li>
       </ul>
     </div>
   </div>

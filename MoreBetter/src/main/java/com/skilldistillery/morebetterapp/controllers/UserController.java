@@ -31,6 +31,16 @@ public class UserController {
 		return "userlogin";
 	}
 	
+	@RequestMapping(path="userCreateProfile.do")
+	public String userCreatePage() {
+		return "userCreateProfile";
+	}
+	
+	@RequestMapping(path="updateProfile.do")
+	public String userProfileDisplay() {
+		return "userProfileDetail";
+	}
+	
 	
 
 	
