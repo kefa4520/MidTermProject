@@ -38,7 +38,7 @@
       <div class="item active">
         <img src="style/images/self-improvement.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Our Three Pillars of Self Growth</h3>
+          <h2>More Resources</h2>
           <p></p>
         </div>      
       </div>
@@ -46,7 +46,7 @@
       <div class="item">
         <img src="style/images/personal-growth.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>To Better Your Life</h3>
+          <h2>To Better Your Life</h2>
           <p></p>
         </div>      
       </div>
@@ -64,7 +64,7 @@
 </div>
   
 <div class="container text-center">    
-  <h3>What We Do</h3><br>
+  <h3>Our Three Pillars of Self Growth</h3><br>
   <div class="row">
   
     <div class="col-sm-4">
