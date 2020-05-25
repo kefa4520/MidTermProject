@@ -95,13 +95,13 @@ a {
     <input type="text" placeholder="Enter yes or no" name="role" required>
     
      <label for="age"><b>Age</b></label>
-    <input type="number" placeholder="Enter your age" name="age" required><br><br>
+    <input type="number" placeholder="Enter your age" name="age" ><br><br>
     
      <label for="biography"><b>Tell Us About Yourself</b></label>
-    <input type="text" placeholder="fun facts, experiences, what you're looking for..." name="biography" required>
+    <input type="text" placeholder="fun facts, experiences, what you're looking for..." name="biography" >
     
      <label for="picture"><b>insert a picture</b></label>
-    <input type="text" placeholder="insert photo URL here" name="picture" required>
+    <input type="text" placeholder="insert photo URL here" name="picture" >
     
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>

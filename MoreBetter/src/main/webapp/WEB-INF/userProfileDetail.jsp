@@ -114,21 +114,19 @@ a {
     <input type="text"placeholder="enter last name"  name="lastName" 	value="${user.lastName}" required><br>
     
       <label for= "email" ><b>Email Address</b></label> 
-    <input type="text"placeholder="enter email"  name="email" 	value="${user.lastNemailame}" required><br>
+    <input type="text"placeholder="enter email"  name="email" 	value="${user.email}" required=" how hold you is"><br>
     
       <label for= "role" ><b>Applying to be a Mentor?</b></label> 
     <input type="text"placeholder="yes or no"  name="role" 	value="${user.role}" required><br>
     
       <label for= "age" ><b>Age</b></label> 
-    <input type="text"placeholder="enter age"  name="age" 	value="${user.age}" required><br>
-    
-      <label for= "lastName" ><b>Last Name</b></label> 
-    <input type="text"placeholder="enter last name"  name="lastName" 	value="${user.lastName}" required><br>
+    <input type="text"placeholder="enter age"  name="age" 	value="${user.age}" ><br>
     
       <label for= "biography" ><b>Tell us about yourself</b></label> 
-    <input type="text"placeholder="enter biography"  name="biography" 	value="${user.biograpgy}" required><br>
+    <input type="text"placeholder="enter biography"  name="biography" 	value="${user.biography}" ><br>
             
-    
+      <label for="picture"><b>insert a picture</b></label>
+    <input type="text" placeholder="insert photo URL here" name="picture" value="${user.picture}" ><br>
     
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
@@ -139,7 +137,7 @@ a {
 <div>
 <form action="destroyProfile.do" method="POST">
         <input type="hidden" value="${user.id}"/> 
-        <button type="submit" class="deletebtn">Delete ${user.name}</button>
+        <button type="submit" class="deletebtn">Delete ${user.username}</button>
 	
           </div>   
 </form>
