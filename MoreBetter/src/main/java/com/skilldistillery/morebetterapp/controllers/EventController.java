@@ -1,6 +1,7 @@
 package com.skilldistillery.morebetterapp.controllers;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import com.skilldistillery.morebetterapp.data.ArticleDAO;
 import com.skilldistillery.morebetterapp.data.CategoryDAO;
 import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
+import com.skilldistillery.morebetterapp.entities.Article;
 import com.skilldistillery.morebetterapp.entities.Event;
 
 @Controller
@@ -112,4 +114,17 @@ public class EventController {
 	}
 	
 	//------------------------------------------DELETE EVENT-----------------------------------------------------//
+	
+	//---------------------------------------DISPLAY ALL EVENTS--------------------------------------------------//
+	
+	
+//		@RequestMapping(path= "categoryPage.do")  //https://github.com/SkillDistillery/SD26/blob/master/jpa/SpringBootIntegration/controller.md
+//		public String displayListEvents(Integer id, Model model) {
+//			List<Event> events = categoryDao.displayAllEventsByCategory(id);
+//			model.addAttribute("events", events);
+//			
+//			return "FIXME";
+//		}
+	//---------------------------------------DISPLAY ALL EVENTS--------------------------------------------------//
+	
 }

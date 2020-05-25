@@ -90,6 +90,8 @@ public class Article {
 		this.category = category;
 	}
 
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -152,9 +154,9 @@ public class Article {
 		this.created = created;
 	}
 
-	@Override
-	public String toString() {
-		return "Article [id=" + id + ", title=" + title + ", contents=" + contents + ", created=" + created + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Article [id=" + id + ", title=" + title + ", contents=" + contents + ", created=" + created + "]";
+//	}
 
 }

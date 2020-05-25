@@ -332,16 +332,16 @@ public class User {
 		this.biography = biography;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=").append(id).append(", firstName=").append(firstName).append(", lastName=")
-				.append(lastName).append(", email=").append(email).append(", role=").append(role).append(", age=")
-				.append(age).append(", username=").append(username).append(", password=").append(password)
-				.append(", enabled=").append(enabled).append(", picture=").append(picture).append(", biography=")
-				.append(biography).append("]");
-		return builder.toString();
-	}
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("User [id=").append(id).append(", firstName=").append(firstName).append(", lastName=")
+//				.append(lastName).append(", email=").append(email).append(", role=").append(role).append(", age=")
+//				.append(age).append(", username=").append(username).append(", password=").append(password)
+//				.append(", enabled=").append(enabled).append(", picture=").append(picture).append(", biography=")
+//				.append(biography).append("]");
+//		return builder.toString();
+//	}
 
 	@Override
 	public int hashCode() {

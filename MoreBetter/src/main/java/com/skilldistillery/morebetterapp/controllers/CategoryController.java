@@ -1,5 +1,7 @@
 package com.skilldistillery.morebetterapp.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import com.skilldistillery.morebetterapp.data.ArticleDAO;
 import com.skilldistillery.morebetterapp.data.CategoryDAO;
 import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
+import com.skilldistillery.morebetterapp.entities.Article;
 import com.skilldistillery.morebetterapp.entities.Category;
 
 @Controller
@@ -40,8 +43,13 @@ public class CategoryController {
 			return "FIXME"; //JSP for category found by id
 		}
 	
+
 	
 	//------------------------------------------FIND BY ID CATEGORY-----------------------------------------------------//
+	
+	
+	
+	
 	
 //	
 //	//------------------------------------------FIND CATEGORY BY NAME-----------------------------------------------------//

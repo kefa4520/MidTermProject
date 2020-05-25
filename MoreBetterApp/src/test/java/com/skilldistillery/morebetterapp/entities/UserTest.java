@@ -56,7 +56,7 @@ class UserTest {
 		assertEquals(35, user.getAge());
 		assertEquals("joemama", user.getUsername());
 		assertEquals("joemama", user.getPassword());
-		assertEquals(1, user.getEnabled());
+		assertEquals(true, user.getEnabled());
 		assertEquals(null, user.getPicture());
 		assertEquals(null, user.getBiography());
 

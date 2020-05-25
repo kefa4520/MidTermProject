@@ -99,12 +99,12 @@ public class Event {
 		this.eventMentor = eventMentor;
 	}
 
-	@Override
-	public String toString() {
-		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
-				+ ", eventDate=" + eventDate + ", maxCapacity=" + maxCapacity + ", price=" + price + ", created="
-				+ created + ", updated=" + updated + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
+//				+ ", eventDate=" + eventDate + ", maxCapacity=" + maxCapacity + ", price=" + price + ", created="
+//				+ created + ", updated=" + updated + "]";
+//	}
 
 	public int getId() {
 		return id;
@@ -185,5 +185,29 @@ public class Event {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event other = (Event) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
+	
 
 }

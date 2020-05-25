@@ -72,15 +72,12 @@ public class Address {
 		return id;
 	}
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((state == null) ? 0 : state.hashCode());
-		result = prime * result + ((street == null) ? 0 : street.hashCode());
-		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
 
@@ -93,37 +90,17 @@ public class Address {
 		if (getClass() != obj.getClass())
 			return false;
 		Address other = (Address) obj;
-		if (city == null) {
-			if (other.city != null)
-				return false;
-		} else if (!city.equals(other.city))
-			return false;
 		if (id != other.id)
-			return false;
-		if (state == null) {
-			if (other.state != null)
-				return false;
-		} else if (!state.equals(other.state))
-			return false;
-		if (street == null) {
-			if (other.street != null)
-				return false;
-		} else if (!street.equals(other.street))
-			return false;
-		if (zipCode == null) {
-			if (other.zipCode != null)
-				return false;
-		} else if (!zipCode.equals(other.zipCode))
 			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Address [id=").append(id).append(", street=").append(street).append(", city=").append(city)
-				.append(", state=").append(state).append(", zipCode=").append(zipCode).append("]");
-		return builder.toString();
-	}
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("Address [id=").append(id).append(", street=").append(street).append(", city=").append(city)
+//				.append(", state=").append(state).append(", zipCode=").append(zipCode).append("]");
+//		return builder.toString();
+//	}
 
 }

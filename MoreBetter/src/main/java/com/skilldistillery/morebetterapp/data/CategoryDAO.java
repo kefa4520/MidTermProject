@@ -11,4 +11,5 @@ public interface CategoryDAO {
 	public Category findCategoryByName(String name);
 	public List<Event> displayAllEventsByCategory(int id);
 	public List<Article> displayAllArticlesByCategory(int id);
+	
 }
