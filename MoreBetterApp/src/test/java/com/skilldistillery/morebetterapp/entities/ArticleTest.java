@@ -56,6 +56,7 @@ class ArticleTest {
 		assertEquals(2020, article.getCreated().getYear());
 		assertEquals(4, article.getCreated().getMonthValue());
 		assertEquals(10, article.getCreated().getDayOfMonth());
+		assertEquals("", article.getReference());
 
 	}
 

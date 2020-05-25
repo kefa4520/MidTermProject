@@ -28,6 +28,8 @@ public class Article {
 
 	@CreationTimestamp
 	private LocalDateTime created;
+	
+	private String reference;
 
 	// mapping
 
@@ -153,6 +155,16 @@ public class Article {
 	public void setCreated(LocalDateTime created) {
 		this.created = created;
 	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+	
+	
 
 //	@Override
 //	public String toString() {
