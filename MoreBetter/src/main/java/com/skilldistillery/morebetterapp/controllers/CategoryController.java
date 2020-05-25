@@ -75,6 +75,7 @@ public class CategoryController {
 	@RequestMapping(path = "getEvents.do") // takes id inputed by user/looks up category
 	public String findEventByCatId(Integer id, Model model) {
 			model.addAttribute("eventsByCategory", categoryDao.displayAllEventsByCategory(id));
+			model.addAttribute("category", categoryDao.findCategoryById(id));
 			return "eventPage"; //JSP for list of events found
 		
 	}

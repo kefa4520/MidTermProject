@@ -9,13 +9,13 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 <title>Look at YOU!</title>
-<br>
-<a href="/" button type="button" class="btn btn-outline-primary">Home</a>
-<br>
-<br>
+
 </head>
 <body>
-	<br>User ID : ${user.id}
+
+${event.title}
+${event.description}
+<%-- 	<br>User ID : ${user.id}
 	<br>
 	<br>page would display an event for user, but would be editable for a mentor (test readonly)(disabled)
 (remove boarder from textfield   https://stackoverflow.com/questions/26033426/bootstrap-remove-form-field-border 
@@ -47,7 +47,7 @@
 	<form action="eventEnroll" method="POST">
 		<strong><em>${user.name}</em></strong> <input type="hidden"
 			 value="${user.id}" /> <input type="submit" button type="button" value="sign up"/>
-	</form>
+	</form> --%>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
