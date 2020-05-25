@@ -34,7 +34,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public List<Event> displayAllEventsByCategory(int id) {
 		List<Event> events = null;
-		String jpql = "SELECT e FROM Event e WHERE e.category = :id";
+		String jpql = "SELECT e FROM Event e WHERE e.category.id = :id";
 		events = em.createQuery(jpql, Event.class).setParameter("id", id).getResultList();
 		return events;
 	}
@@ -42,8 +42,11 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public List<Article> displayAllArticlesByCategory(int id) {
 		List<Article> articles = null;
-		String jpql = "SELECT a FROM Article a WHERE a.category = :id";
+		String jpql = "SELECT a FROM Article a WHERE a.category.id = :id";
 		articles = em.createQuery(jpql, Article.class).setParameter("id", id).getResultList();
 		return articles;
 	}
+	
+	
+	
 }

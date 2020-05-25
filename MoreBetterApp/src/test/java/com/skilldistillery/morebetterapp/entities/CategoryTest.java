@@ -49,7 +49,7 @@ class CategoryTest {
 		assertNotNull(category);
 		assertEquals("Finance", category.getName());
 		assertEquals(null, category.getLogo());
-		assertEquals(null, category.getDescription());
+		assertEquals("Take action and make your financial goals a reality.", category.getDescription());
 		
 		
 	}
