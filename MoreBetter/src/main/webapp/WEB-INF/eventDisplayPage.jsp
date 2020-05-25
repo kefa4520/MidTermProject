@@ -15,7 +15,7 @@
   <jsp:include page="navbar.jsp"/>
 </head>
 <body>
-
+${category.name}
 ${event.title}
 ${event.description}
 <%-- <br>User ID : ${user.id}
