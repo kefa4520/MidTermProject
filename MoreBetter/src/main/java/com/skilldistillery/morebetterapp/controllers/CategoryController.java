@@ -27,11 +27,7 @@ public class CategoryController {
 	@Autowired
 	private UserDAO userDao;
 	
-//	@RequestMapping(path= )
-//	public String categoryPage() {
-//		return "";
-//	}
-	
+
 	//------------------------------------------FIND CATEGORY BY ID-----------------------------------------------------//
 	
 	
