@@ -72,14 +72,12 @@ public class CategoryController {
 //	
 //	
 //	
-//	@RequestMapping(path = "getCategory.do") // takes id inputed by user/looks up category
-//	public String findEventByCatId(Integer id, Model model) {
-//		
-//			model.addAttribute("eventsByCategory", categoryDao.displayAllEventsByCategory(id));
-//
-//			return "FIXME"; //JSP for list of events found
-//		
-//	}
+	@RequestMapping(path = "getEvents.do") // takes id inputed by user/looks up category
+	public String findEventByCatId(Integer id, Model model) {
+			model.addAttribute("eventsByCategory", categoryDao.displayAllEventsByCategory(id));
+			return "eventPage"; //JSP for list of events found
+		
+	}
 //	
 ////	//--------------------------------------- DISPLAY EVENTS BY CATEGORY--------------------------------------------------//
 ////	//--------------------------------------- DISPLAY ARTICLE BY CATEGORY--------------------------------------------------//

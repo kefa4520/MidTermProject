@@ -15,7 +15,14 @@
 </head>
 <body>
 
-
+	<div class="jumbotron jumbotron-fluid">
+	  	<div class="container">
+	  	<a href="getEvents.do?id=${category.id}">
+	    <h1 class="display-3">Events</h1>
+	    </a>
+	    <p class="lead">All ${category.name} related Events</p>
+	  	</div>
+	</div>
 
 	<br>
 	<c:forEach var="article" items="${articles}">

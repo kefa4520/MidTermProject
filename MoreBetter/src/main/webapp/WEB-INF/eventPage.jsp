@@ -12,6 +12,11 @@
 </head>
 <body>
 Category Event Page
+<ul>
+<c:forEach var="event" items="${eventsByCategory}">
+<li>${event.title}</li>
+</c:forEach>
+</ul>
 
 when the button on  article page is clicked, it takes you to this page where all events are displayed
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
