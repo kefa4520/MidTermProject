@@ -79,16 +79,16 @@ a {
 </head>
 <body>
 
-<form action="userLogin.do">
+<form action="userLogin.do" method= "POST">
   <div class="container">
     <h1>Log In</h1>
    
 
-    <label for="email"><b>User Name</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <label for="username"><b>User Name</b></label>
+    <input type="text" placeholder="Enter Email" name="username" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
 
 
 
