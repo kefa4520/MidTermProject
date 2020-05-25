@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -36,7 +39,9 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
-	@Size(min=1, max=120, message = "Please enter an appropriate age")
+	@NotNull
+	@Min(0)
+	@Max(120)
 	private Integer age;
 
 	@Size(min=7, max=20, message= "Username must be between 7 and 20 characters")
