@@ -18,8 +18,8 @@
 
 	<div class="jumbotron jumbotron-fluid">
 	  <div class="container">
-	    <h1 class="display-3">${category.name} Event Page</h1>
-	    <p class="lead">Better yourself with these awesome local ${category.name} Events!</p>
+	    <h1 class="text-center">${category.name} Event Page</h1>
+	    <p class="text-center">Better yourself with these awesome local ${category.name} Events!</p>
 	  </div>
 	</div>
 
