@@ -69,7 +69,7 @@ a {
 </style>
 </head>
 <body>
-<form action="userCreateProfile.do">
+<form action="addUser.do" method="POST">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
@@ -78,11 +78,9 @@ a {
     <input type="text" placeholder="Enter Email" name="email" required>
     
     <label for="username"><b>Create a User Name</b></label>
-    <input type="text" placeholder="Enter Password" name="psw" required>
-    <label for="psw"><b>Password</b></label>
-    <input type="text" placeholder="Enter Password" name="psw" required>
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="text" placeholder="Repeat Password" name="psw-repeat" required> 
+    <input type="text" placeholder="Enter Username" name="username" required>
+    <label for="password"><b>Password</b></label>
+    <input type="text" placeholder="Enter Password" name="password" required>
     
     <label for="firstName"><b>First Name</b></label>
     <input type="text" placeholder="Enter your first name" name="firstName" required>
@@ -92,7 +90,12 @@ a {
     
     
      <label for="role"><b>Applying to be a Mentor?</b></label>
-    <input type="text" placeholder="Enter yes or no" name="role" required>
+  
+     <select id="role" name="role" required> 
+    	<option value="STANDARD">no</option>
+    	<option value="MENTOR">yes</option>
+    </select><br><br>
+    
     
      <label for="age"><b>Age</b></label>
     <input type="number" placeholder="Enter your age" name="age" ><br><br>
@@ -102,6 +105,10 @@ a {
     
      <label for="picture"><b>insert a picture</b></label>
     <input type="text" placeholder="insert photo URL here" name="picture" >
+    
+    
+    <input type="hidden" name="enabled" value="true">
+    
     
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>

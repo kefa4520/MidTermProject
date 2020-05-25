@@ -16,6 +16,7 @@ import com.skilldistillery.morebetterapp.data.ArticleDAO;
 import com.skilldistillery.morebetterapp.data.CategoryDAO;
 import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
+import com.skilldistillery.morebetterapp.entities.Article;
 import com.skilldistillery.morebetterapp.entities.User;
 
 @Controller
@@ -35,6 +36,7 @@ public class UserController {
 		return "userlogin";
 	}
 
+	//_______________________________user log in__________________________________
 	@RequestMapping(path = "userLogin.do", method = RequestMethod.POST)
 	public String userLoginPage(String username, String password, Model model, HttpSession session) {
 		User currentUser = userDao.findByUserNameAndPassword(username, password);
@@ -45,16 +47,37 @@ public class UserController {
 			return "userProfileDetail";
 		}
 	}
+	
+//	//_______________________________user logout__________________________________
+//	@RequestMapping(path = "userLogout.do", method = RequestMethod.GET)
+//	public String userLogout(HttpSession session) {
+//		session.removeAttribute("username");
+//		return "FIXME";
+//	}
+	
 
-	@RequestMapping(path = "userCreateProfile.do")
-	public String userCreatePage() {
-		return "userCreateProfile";
-
-	}
 
 	@RequestMapping(path = "updateProfile.do")
 	public String userProfileDisplay() {
 		return "userProfileDetail";
 	}
+	
+	
+	@RequestMapping(path = "userCreateProfile.do", method = RequestMethod.GET)
+	public String userCreatePage() {
+		return "userCreateProfile";
+		
+	}
 
+	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
+	public ModelAndView addUser(User user) { 
+		ModelAndView mv = new ModelAndView();
+
+		User newUser = userDao.createUser(user);
+			mv.addObject("newUser", newUser);
+			mv.setViewName("userlogin");     //jsp name for displaying new user
+			return mv;
+		}
+	
+	
 }
