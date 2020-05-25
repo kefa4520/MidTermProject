@@ -1,18 +1,30 @@
 @charset "UTF-8";
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+div {
+	font-family: 'Oswald', sans-serif;
+}
 footer {
 	background-color: #f2f2f2;
 	padding: 25px;
 }
 
-
+/*<--------------Class Selectors----------------->*/
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;
+	font-size: 24px;
 }
 
 .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
 }
+
+/*<--------------ID Selectors----------------->*/
+
+#jumboTitle {
+	font-size: 120px;
+}
+
+

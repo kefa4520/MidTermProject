@@ -15,6 +15,7 @@ import com.skilldistillery.morebetterapp.data.CategoryDAO;
 import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
 import com.skilldistillery.morebetterapp.entities.Article;
+import com.skilldistillery.morebetterapp.entities.Category;
 
 @Controller
 public class ArticleController {
@@ -113,6 +114,8 @@ public class ArticleController {
 		
 		ModelAndView mv = new ModelAndView();
 		List<Article> articles = categoryDao.displayAllArticlesByCategory(id);
+		Category category = categoryDao.findCategoryById(id);
+		mv.addObject("category", category);
 		mv.addObject("articles", articles);
 		mv.setViewName("categoryDisplayPage");
 		return mv;
