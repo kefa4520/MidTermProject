@@ -43,17 +43,19 @@ public class UserController {
 		if (currentUser == null) {
 			return "userCreateProfile";
 		} else {
-			session.setAttribute("user", currentUser);
+			session.setAttribute("loggedInUser", currentUser);
+			model.addAttribute("user", currentUser);
 			return "userProfileDetail";
 		}
 	}
 	
-//	//_______________________________user logout__________________________________
-//	@RequestMapping(path = "userLogout.do", method = RequestMethod.GET)
-//	public String userLogout(HttpSession session) {
-//		session.removeAttribute("username");
-//		return "FIXME";
-//	}
+	//_______________________________user logout__________________________________
+	@RequestMapping(path = "userLogout.do", method = RequestMethod.GET)
+	public String userLogout(HttpSession session) {
+		session.removeAttribute("loggedInUser");
+		
+		return "index";
+	}
 	
 
 
