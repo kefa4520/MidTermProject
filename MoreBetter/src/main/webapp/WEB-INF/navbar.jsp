@@ -9,13 +9,14 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
+			<a href="home.do"><img src="style/images/morebetterlandscape.png"
+					alt="MoreBetter Logo" class="img-thumbnail"></a>
 			<!-- <a class="navbar-brand" href="#">Logo</a> -->
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><img src="style/images/morebetterlogothumbnail.png"
-					alt="MoreBetter Logo" class="img-thumbnail"></li>
-				<li class="active"><a href="home.do">Home</a></li>
+				<!-- <li></li> -->
+				<!-- <li class="active"><a href="home.do">Home</a></li> -->
 				<li><a href="#">About</a></li>
 				<li><a href="#">Projects</a></li>
 				<li><a href="#">Contact</a></li>

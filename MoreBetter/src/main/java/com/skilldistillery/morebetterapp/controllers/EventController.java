@@ -119,7 +119,9 @@ public class EventController {
 		@RequestMapping(path= "individualEvent.do")
 		public String displayListEvents(Integer id, Model model) {
 			Event event = eventDao.findEventById(id);
+			Category category = event.getCategory();
 			model.addAttribute("event", event);
+			model.addAttribute("category", category);
 			return "eventDisplayPage";
 		}
 	//---------------------------------------DISPLAY ALL EVENTS--------------------------------------------------//
