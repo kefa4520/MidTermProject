@@ -36,18 +36,18 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
+        <img src="style/images/self-improvement.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>Sell $</h3>
-          <p>Money Money.</p>
+          <h3>Our Three Pillars of Self Growth</h3>
+          <p></p>
         </div>      
       </div>
 
       <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
+        <img src="style/images/personal-growth.jpg" alt="Image">
         <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Lorem ipsum...</p>
+          <h3>To Better Your Life</h3>
+          <p></p>
         </div>      
       </div>
     </div>
@@ -70,7 +70,7 @@
     <div class="col-sm-4">
   	 
      <a href=categoryPage.do?id=1>
-     <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+     <img src="style/images/financelogo.png" class="img-responsive" style="width:100%" alt="Finance">
      </a>
      <h1>Finance</h1>
     </div>
@@ -78,16 +78,16 @@
     
     <div class="col-sm-4">
      <a href=categoryPage.do?id=2>
-     <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+     <img src="style/images/mentalhealthlogo.png" class="img-responsive" style="width:100%" alt="Mental Health">
      </a>
      <h1>Mental Health</h1>    
     </div>
     
     <div class="col-sm-4">
       <a href=categoryPage.do?id=3> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <img src="style/images/fitnesslogo.jpg" class="img-responsive" style="width:100%" alt="Fitness">
       </a>
-      <h1>Physical Health</h1>    
+      <h1>Fitness</h1>    
     </div>
     
   </div>
