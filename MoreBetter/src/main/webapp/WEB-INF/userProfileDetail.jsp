@@ -156,9 +156,8 @@ a {
 
 	<div>
 		<form action="destroyProfile.do" method="POST">
-			<input type="hidden" value="${user.id}" />
-			<button type="submit" class="deletebtn">Delete
-				${user.username}</button>
+	        <input type="hidden" name="id" value="${user.id}"/> 
+	        <button type="submit" class="deletebtn">Delete ${user.username}</button>
 		</form>
 	</div>
 

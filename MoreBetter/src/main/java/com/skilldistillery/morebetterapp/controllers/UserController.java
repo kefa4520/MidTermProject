@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.morebetterapp.data.ArticleDAO;
 import com.skilldistillery.morebetterapp.data.CategoryDAO;
@@ -31,7 +32,7 @@ public class UserController {
 		return "userlogin";
 	}
 
-	//_______________________________user log in__________________________________
+	// _______________________________user log in__________________________________
 	@RequestMapping(path = "userLogin.do", method = RequestMethod.POST)
 	public String userLoginPage(String username, String password, Model model, HttpSession session) {
 		User currentUser = userDao.findByUserNameAndPassword(username, password);
@@ -43,24 +44,21 @@ public class UserController {
 			return "userProfileDetail";
 		}
 	}
-	
-	//_______________________________user logout__________________________________
+
+	// _______________________________user logout__________________________________
 	@RequestMapping(path = "userLogout.do", method = RequestMethod.GET)
 	public String userLogout(HttpSession session) {
 		session.removeAttribute("loggedInUser");
-		
+
 		return "index";
 	}
-	
-	
-	
+
 	@RequestMapping(path = "userProfile.do", method = RequestMethod.GET)
 	public String displayProfile(User user, Model model, HttpSession session) {
 		model.addAttribute("user", session.getAttribute("loggedInUser"));
 		return "userProfileDetail";
-		
-	}
 
+	}
 
 //	@RequestMapping(path = "updateProfile.do", method = RequestMethod.POST)
 //	public String userProfileDisplay(User user, Integer id, Model model, HttpSession session) {
@@ -71,20 +69,19 @@ public class UserController {
 //		 //passing in the user currently logged in
 //		return "index";
 //	}
-	
-	
-	//________________________JEFF WROTE THIS_____________________//
-	
-	@RequestMapping(path="updateProfile.do", method = RequestMethod.POST)
+
+	// ________________________JEFF WROTE THIS_____________________//
+
+	@RequestMapping(path = "updateProfile.do", method = RequestMethod.POST)
 	public String updateProfile(Model model, User user, HttpSession session) {
 		User updateUser = userDao.updateUser(user);
 		session.setAttribute("loggedInUser", updateUser);
 		model.addAttribute("user", updateUser);
 		return "userCreateProfile";
 	}
-	
-	//_________________________________________________________________//
-	
+
+	// _________________________________________________________________//
+
 	@RequestMapping(path = "userCreateProfile.do", method = RequestMethod.GET)
 	public String userCreatePage() {
 		return "userCreateProfile";
@@ -99,8 +96,8 @@ public class UserController {
 //			mv.setViewName("userlogin");     //jsp name for displaying new user
 //			return mv;
 //		}
-	
-	//________________________JEFF WROTE THIS_____________________//
+
+	// ________________________JEFF WROTE THIS_____________________//
 	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
 	public String addUser(User user, Model model, HttpSession session) {
 		User newUser = userDao.createUser(user);
@@ -108,26 +105,35 @@ public class UserController {
 		session.setAttribute("loggedInUser", newUser);
 		return "welcome";
 	}
-	//_______________________________________________________________//
-	
+	// _______________________________________________________________//
+
+	@RequestMapping(path = "destroyProfile.do", method = RequestMethod.POST)
+	public ModelAndView destroyTheUser(Integer id, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		boolean destroyedUser = userDao.deleteUserById(id);
+		session.setAttribute("loggedInUser", destroyedUser);
+	//	mv.addObject("user", destroyedUser);
+		if (destroyedUser == true) {
+			
+			mv.setViewName("index");
+			session.removeAttribute("loggedInUser");
+			return mv;
+		} else {
+			mv.setViewName("error");
+			return mv;
+		}
+	}	
+
+//	@RequestMapping(path = "destroyProfile.do", method = RequestMethod.POST)
+//	public String destroyTheUser(int id, User user, Model model, HttpSession session) {
+//		boolean destroyedUser = userDao.deleteUserById(id);
+//		model.addAttribute("user", destroyedUser);
+//		if (destroyedUser == true) {
+//			return "index";
+//		} else {
+//			return "error";
+//
+//		}
+//
+//	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
