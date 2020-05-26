@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -64,7 +65,9 @@ public class User {
 	@OneToMany(mappedBy = "userAuthor")
 	private List<Article> writtenArticles;
 
-	@ManyToMany(mappedBy = "attendees")
+	
+	
+	@ManyToMany(mappedBy = "attendees", fetch = FetchType.EAGER)
 	private List<Event> eventsAttended;
 
 	@OneToMany(mappedBy = "eventMentor")

@@ -107,7 +107,8 @@ a {
     <input type="text" placeholder="insert photo URL here" name="picture" >
     
     
-    <input type="hidden" name="enabled" value="true">
+    <input type="hidden" name="enabled" value="false">
+    <input type="hidden" name="id" value="${user.id}">
     
     
     <hr>

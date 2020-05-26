@@ -86,8 +86,8 @@
 			<h3>Date Created: ${event.created}</h3>
 			
 			<form action="addUserToEvent.do" method="POST">
-	        <input type="hidden" value="${sessionScope.loggedInUser}"/> 
-	        <input type="hidden" value="${event}"/> 
+	        <input type="hidden" name="uId" value="${sessionScope.loggedInUser.id}"/> 
+	        <input type="hidden" name="eId" value="${event.id}"/> 
 	        <button type="submit" class="btn btn-default">Add ${sessionScope.loggedInUser.firstName} ${sessionScope.loggedInUser.lastName}</button>
 		</form>
 		</div>
