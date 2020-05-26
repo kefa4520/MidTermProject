@@ -57,11 +57,24 @@ public class UserController {
 		return "index";
 	}
 	
-
-
-	@RequestMapping(path = "updateProfile.do")
-	public String userProfileDisplay() {
+	
+	
+	@RequestMapping(path = "userProfile.do", method = RequestMethod.GET)
+	public String displayProfile(User user, Model model, HttpSession session) {
+		model.addAttribute("user", session.getAttribute("loggedInUser"));
 		return "userProfileDetail";
+		
+	}
+
+
+	@RequestMapping(path = "updateProfile.do", method = RequestMethod.POST)
+	public String userProfileDisplay(User user, Integer id, Model model, HttpSession session) {
+		User updatedUser = (User)(session.getAttribute("loggedInUser"));
+	User updated = userDao.updateUser(id, updatedUser);
+//		model.addAttribute("user", session.getAttribute("loggedInUser")); 
+		model.addAttribute("updatedUser", updated);
+		 //passing in the user currently logged in
+		return "index";
 	}
 	
 	
