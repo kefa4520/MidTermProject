@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.morebetterapp.data.ArticleDAO;
 import com.skilldistillery.morebetterapp.data.CategoryDAO;
@@ -77,10 +76,11 @@ public class UserController {
 	//________________________JEFF WROTE THIS SHIT_____________________//
 	
 	@RequestMapping(path="updateProfile.do", method = RequestMethod.POST)
-	public String updateProfile(Model model, User user) {
+	public String updateProfile(Model model, User user, HttpSession session) {
 		User updateUser = userDao.updateUser(user);
+		session.setAttribute("loggedInUser", updateUser);
 		model.addAttribute("user", updateUser);
-		return "index";
+		return "userCreateProfile";
 	}
 	
 	//_________________________________________________________________//
@@ -88,18 +88,46 @@ public class UserController {
 	@RequestMapping(path = "userCreateProfile.do", method = RequestMethod.GET)
 	public String userCreatePage() {
 		return "userCreateProfile";
-		
 	}
 
-	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
-	public ModelAndView addUser(User user) { 
-		ModelAndView mv = new ModelAndView();
-
-		User newUser = userDao.createUser(user);
-			mv.addObject("newUser", newUser);
-			mv.setViewName("userlogin");     //jsp name for displaying new user
-			return mv;
-		}
+//	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
+//	public ModelAndView addUser(User user) { 
+//		User newUser = userDao.createUser(user);
+//		ModelAndView mv = new ModelAndView();
+//
+//			mv.addObject("newUser", newUser);
+//			mv.setViewName("userlogin");     //jsp name for displaying new user
+//			return mv;
+//		}
 	
+	//________________________JEFF WROTE THIS SHIT_____________________//
+	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
+	public String addUser(User user, Model model, HttpSession session) {
+		User newUser = userDao.createUser(user);
+		model.addAttribute("user", newUser);
+		session.setAttribute("loggedInUser", newUser);
+		return "welcome";
+	}
+	//_______________________________________________________________//
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User createUser(User user) {
 		em.persist(user);
-		em.flush();
+		em.flush();     
 		return user;
 	}
 
@@ -85,6 +85,7 @@ public class UserDAOImpl implements UserDAO {
 		updatedUser.setEnabled(user.getEnabled());
 		updatedUser.setPicture(user.getPicture());
 		updatedUser.setBiography(user.getBiography());
+		em.flush();
 		System.out.println("I AM AWESOME");
 		return updatedUser;
 	}	

@@ -69,8 +69,8 @@ a {
 </style>
 </head>
 <body>
-<form action="addUser.do" method="POST">
   <div class="container">
+<form action="addUser.do" method="POST">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
@@ -113,11 +113,11 @@ a {
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn">Register</button>
-  </div>
   
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
-</form>
+	</form>
+ </div>
 </body>
 </html>
