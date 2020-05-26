@@ -41,6 +41,8 @@
 								class="glyphicon glyphicon-log-in"></span> Profile</a></li>
 						<li><a href="userLogout.do"><span
 								class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+						<li><a href="userEvents.do"><span
+								class="glyphicon glyphicon-log-in"></span> Events</a></li>
 					</ul>
 				</c:otherwise>
 
