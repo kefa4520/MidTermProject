@@ -107,6 +107,11 @@ public class UserController {
 	}
 	// _______________________________________________________________//
 
+	
+	//set to enabled instead of elete
+	
+	
+	
 	@RequestMapping(path = "destroyProfile.do", method = RequestMethod.POST)
 	public ModelAndView destroyTheUser(Integer id, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -124,16 +129,5 @@ public class UserController {
 		}
 	}	
 
-//	@RequestMapping(path = "destroyProfile.do", method = RequestMethod.POST)
-//	public String destroyTheUser(int id, User user, Model model, HttpSession session) {
-//		boolean destroyedUser = userDao.deleteUserById(id);
-//		model.addAttribute("user", destroyedUser);
-//		if (destroyedUser == true) {
-//			return "index";
-//		} else {
-//			return "error";
-//
-//		}
-//
-//	}
+
 }

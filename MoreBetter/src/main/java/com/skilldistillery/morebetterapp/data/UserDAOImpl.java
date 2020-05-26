@@ -33,7 +33,8 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean deleteUserById(int id) {
 		User userToDelete = em.find(User.class, id);
-		em.remove(userToDelete);
+		userToDelete.setEnabled(false);
+		//em.remove(userToDelete);
 		boolean stillContains = !em.contains(userToDelete);
 		em.flush();
 		return stillContains; // should return TRUE if deleted successfully.
