@@ -36,7 +36,7 @@
 				<c:otherwise>
 					<ul class="nav navbar-nav navbar-right">
 
-						<li><a href="updateProfile.do"><span
+						<li><a href="userProfile.do"><span
 								class="glyphicon glyphicon-log-in"></span> Profile</a></li>
 						<li><a href="userLogout.do"><span
 								class="glyphicon glyphicon-log-in"></span> Log Out</a></li>

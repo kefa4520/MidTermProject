@@ -94,7 +94,7 @@ a {
 </head>
 <body>
 
-<form action="updateProfile.do">
+<form action="updateProfile.do" method="POST">
   <div class="container">
     <h1>Update Your Profile</h1>
     <p>Update your profile here.</p>
@@ -114,10 +114,19 @@ a {
     <input type="text"placeholder="enter last name"  name="lastName" 	value="${user.lastName}" required><br>
     
       <label for= "email" ><b>Email Address</b></label> 
-    <input type="text"placeholder="enter email"  name="email" 	value="${user.email}" required=" how hold you is"><br>
+    <input type="text"placeholder="enter email"  name="email" 	value="${user.email}" required><br>
     
-      <label for= "role" ><b>Applying to be a Mentor?</b></label> 
+      <%-- <label for= "role" ><b>Applying to be a Mentor?</b></label> 
     <input type="text"placeholder="yes or no"  name="role" 	value="${user.role}" required><br>
+     --%>
+    <label for="role"><b>Applying to be a Mentor?</b></label>
+  
+     <select id="role" name="role" required> 
+    	<option value="${user.role}">keep original status</option>
+    	<option value="STANDARD">no</option>
+    	<option value="MENTOR">yes</option>
+    </select><br><br>
+    
     
       <label for= "age" ><b>Age</b></label> 
     <input type="text"placeholder="enter age"  name="age" 	value="${user.age}" ><br>
@@ -127,6 +136,9 @@ a {
             
       <label for="picture"><b>insert a picture</b></label>
     <input type="text" placeholder="insert photo URL here" name="picture" value="${user.picture}" ><br>
+    
+    <input type="hidden" name="enabled" value="true">
+    <input type="hidden" name="id" value="${user.id}">
     
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
