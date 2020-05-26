@@ -21,10 +21,23 @@ footer {
     min-height:200px;
 }
 
+.eventbackground {
+	height: 100%;
+}
+
 /*<--------------ID Selectors----------------->*/
 
 #jumboTitle {
-	font-size: 120px;
+	font-size: 100px;
+}
+
+#eventblock {
+	background-image: url("images/morebetterlogo2.png");
+	color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
 }
 
 
