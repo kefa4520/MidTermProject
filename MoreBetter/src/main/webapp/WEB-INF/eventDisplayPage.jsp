@@ -85,11 +85,15 @@
 			<h3>Price: <fmt:formatNumber value="${event.price}" type="currency"/></h3>
 			<h3>Date Created: ${event.created}</h3>
 			
+			<c:choose>
+			<c:when test="${sessionScope.loggedInUser != null}">
 			<form action="addUserToEvent.do" method="POST">
-	        <input type="hidden" name="uId" value="${sessionScope.loggedInUser.id}"/> 
-	        <input type="hidden" name="eId" value="${event.id}"/> 
-	        <button type="submit" class="btn btn-default">Add ${sessionScope.loggedInUser.firstName} ${sessionScope.loggedInUser.lastName}</button>
-		</form>
+		        <input type="hidden" name="uId" value="${sessionScope.loggedInUser.id}"/> 
+		        <input type="hidden" name="eId" value="${event.id}"/> 
+		        <button type="submit" class="btn btn-default">Add ${sessionScope.loggedInUser.firstName} ${sessionScope.loggedInUser.lastName}</button>
+			</form>
+	        </c:when>
+	      </c:choose>
 		</div>
 	
 	
