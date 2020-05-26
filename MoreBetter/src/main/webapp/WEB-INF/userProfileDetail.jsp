@@ -108,7 +108,7 @@
 	     	<select id="role" name="role" required> 
 	    		<option value="${user.role}">keep original status</option>
 	    		<option value="STANDARD">no</option>
-	    		<option value="MENTOR">yes</option>
+	    		<option value="APPLICANT">yes</option>
 	    	</select><br><br>
 	      	<label for= "age" ><b>Age</b></label> 
 	    	<input type="text"placeholder="enter age"  name="age" 	value="${user.age}" ><br>
@@ -123,7 +123,7 @@
 	<div>
 		<form action="destroyProfile.do" method="POST">
 	        <input type="hidden" name="id" value="${user.id}"/> 
-	        <button type="submit" class="deletebtn">Delete ${user.username}</button>
+	        <button type="submit" class="deletebtn">Disable ${user.username}</button>
 		</form>
 	</div>
 </body>

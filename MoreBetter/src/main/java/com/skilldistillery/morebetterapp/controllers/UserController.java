@@ -38,6 +38,9 @@ public class UserController {
 		User currentUser = userDao.findByUserNameAndPassword(username, password);
 		if (currentUser == null) {
 			return "userCreateProfile";
+		}
+		else if (currentUser.getEnabled() == false) {
+				return "disabled";
 		} else {
 			session.setAttribute("loggedInUser", currentUser);
 			model.addAttribute("user", currentUser);
@@ -77,7 +80,7 @@ public class UserController {
 		User updateUser = userDao.updateUser(user);
 		session.setAttribute("loggedInUser", updateUser);
 		model.addAttribute("user", updateUser);
-		return "userCreateProfile";
+		return "userProfileDetail";
 	}
 
 	// _________________________________________________________________//
@@ -118,7 +121,7 @@ public class UserController {
 		boolean destroyedUser = userDao.deleteUserById(id);
 		session.setAttribute("loggedInUser", destroyedUser);
 	//	mv.addObject("user", destroyedUser);
-		if (destroyedUser == true) {
+		if (destroyedUser == false) {
 			
 			mv.setViewName("index");
 			session.removeAttribute("loggedInUser");

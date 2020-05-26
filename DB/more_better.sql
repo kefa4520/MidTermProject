@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `first_name` VARCHAR(50) NOT NULL,
   `last_name` VARCHAR(50) NOT NULL,
   `email` VARCHAR(1000) NULL,
-  `role` ENUM("STANDARD", "MENTOR", "ADMIN") NOT NULL,
+  `role` ENUM("STANDARD", "MENTOR", "APPLICANT") NOT NULL,
   `age` INT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(200) NOT NULL,
@@ -333,4 +333,3 @@ USE `morebetterdb`;
 INSERT INTO `article_comment` (`id`, `user_id`, `article_id`, `content`, `created_at`) VALUES (1, 1, 1, 'Great article', '2020-05-22 11:58:30');
 
 COMMIT;
-

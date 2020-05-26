@@ -93,7 +93,7 @@ a {
   
      <select id="role" name="role" required> 
     	<option value="STANDARD">no</option>
-    	<option value="MENTOR">yes</option>
+    	<option value="APPLICANT">yes</option>
     </select><br><br>
     
     
@@ -107,8 +107,8 @@ a {
     <input type="text" placeholder="insert photo URL here" name="picture" >
     
     
-    <input type="hidden" name="enabled" value="false">
-    <input type="hidden" name="id" value="${user.id}">
+    <input type="hidden" name="enabled" value="true">
+    
     
     
     <hr>
