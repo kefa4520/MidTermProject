@@ -73,7 +73,7 @@ public class UserController {
 //	}
 	
 	
-	//________________________JEFF WROTE THIS SHIT_____________________//
+	//________________________JEFF WROTE THIS_____________________//
 	
 	@RequestMapping(path="updateProfile.do", method = RequestMethod.POST)
 	public String updateProfile(Model model, User user, HttpSession session) {
@@ -100,7 +100,7 @@ public class UserController {
 //			return mv;
 //		}
 	
-	//________________________JEFF WROTE THIS SHIT_____________________//
+	//________________________JEFF WROTE THIS_____________________//
 	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
 	public String addUser(User user, Model model, HttpSession session) {
 		User newUser = userDao.createUser(user);

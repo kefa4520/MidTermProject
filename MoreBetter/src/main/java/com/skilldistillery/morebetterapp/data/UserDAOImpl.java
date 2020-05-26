@@ -71,7 +71,7 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
-	//________________Jeff Touched this Shit________________//
+	//________________Jeff Touched This________________//
 	@Override
 	public User updateUser(User user) {
 		User updatedUser = em.find(User.class,  user.getId());
