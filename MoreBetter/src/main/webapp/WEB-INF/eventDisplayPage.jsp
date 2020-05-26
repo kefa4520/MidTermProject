@@ -19,7 +19,7 @@
 <body class="eventbackground">
 
 	<c:choose>
-	<c:when test="${sessionScope.loggedInUser.enabled == true}">
+	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
 
 		<div class="container-fluid" id="eventblock">
 		
