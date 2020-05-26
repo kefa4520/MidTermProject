@@ -9,6 +9,12 @@ footer {
 }
 
 /*<--------------Class Selectors----------------->*/
+.img-responsive {
+	border-radius: 100%;
+	height: "95%";
+	width: "100%";
+}
+
 .navbar {
 	margin-bottom: 0;
 	border-radius: 0;

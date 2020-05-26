@@ -70,7 +70,7 @@
     <div class="col-sm-4">
   	 
      <a href=categoryPage.do?id=1>
-     <img src="style/images/financelogo.png" class="img-responsive" style="width:100%" alt="Finance">
+     <img src="style/images/money-1604921.jpg" class="img-responsive" style="width:100%" alt="Finance">
      </a>
      <h1>Finance</h1>
     </div>
@@ -78,14 +78,14 @@
     
     <div class="col-sm-4">
      <a href=categoryPage.do?id=2>
-     <img src="style/images/mentalhealthlogo.png" class="img-responsive" style="width:100%" alt="Mental Health">
+     <img src="style/images/happy.jpg" class="img-responsive" style="width:100%" alt="Mental Health" >
      </a>
      <h1>Mental Health</h1>    
     </div>
     
     <div class="col-sm-4">
       <a href=categoryPage.do?id=3> 
-      <img src="style/images/fitnesslogo.jpg" class="img-responsive" style="width:100%" alt="Fitness">
+      <img src="style/images/bike.jpg" class="img-responsive" style="width:100%" alt="Fitness">
       </a>
       <h1>Fitness</h1>    
     </div>
