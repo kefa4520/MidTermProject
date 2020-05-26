@@ -5,18 +5,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.morebetterapp.data.ArticleDAO;
 import com.skilldistillery.morebetterapp.data.CategoryDAO;
 import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
-import com.skilldistillery.morebetterapp.entities.Article;
 import com.skilldistillery.morebetterapp.entities.User;
 
 @Controller
@@ -67,16 +63,27 @@ public class UserController {
 	}
 
 
-	@RequestMapping(path = "updateProfile.do", method = RequestMethod.POST)
-	public String userProfileDisplay(User user, Integer id, Model model, HttpSession session) {
-		User updatedUser = (User)(session.getAttribute("loggedInUser"));
-	User updated = userDao.updateUser(id, updatedUser);
-//		model.addAttribute("user", session.getAttribute("loggedInUser")); 
-		model.addAttribute("updatedUser", updated);
-		 //passing in the user currently logged in
+//	@RequestMapping(path = "updateProfile.do", method = RequestMethod.POST)
+//	public String userProfileDisplay(User user, Integer id, Model model, HttpSession session) {
+//		User updatedUser = (User)(session.getAttribute("loggedInUser"));
+//		User updated = userDao.updateUser(id, updatedUser);
+////		model.addAttribute("user", session.getAttribute("loggedInUser")); 
+//		model.addAttribute("updatedUser", updated);
+//		 //passing in the user currently logged in
+//		return "index";
+//	}
+	
+	
+	//________________________JEFF WROTE THIS SHIT_____________________//
+	
+	@RequestMapping(path="updateProfile.do", method = RequestMethod.POST)
+	public String updateProfile(Model model, User user) {
+		User updateUser = userDao.updateUser(user);
+		model.addAttribute("user", updateUser);
 		return "index";
 	}
 	
+	//_________________________________________________________________//
 	
 	@RequestMapping(path = "userCreateProfile.do", method = RequestMethod.GET)
 	public String userCreatePage() {
