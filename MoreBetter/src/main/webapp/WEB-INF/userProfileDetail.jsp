@@ -101,20 +101,20 @@ a {
      <p>Fields with a * are required.</p>
     <hr>
 
-    <label for= "Username" ><b>Username</b></label> 
-    <input type="text"placeholder="enter username"  name="username" 	value="${user.username}" required><br>
+    <label for= "username" ><b>username</b></label> 
+    <input type="text" placeholder="enter username"  name="username" 	value="${user.username}" required><br>
     
-    <label for= "Password" ><b>Password</b></label> 
-    <input type="text"placeholder="enter Password"  name="password" 	value="${user.password}" required><br>
+    <label for= "password" ><b>Password</b></label> 
+    <input type="text" placeholder="enter Password"  name="password" 	value="${user.password}" required><br>
     
     <label for= "firstName" ><b>First Name</b></label> 
-    <input type="text"placeholder="enter firstName"  name="firstName" 	value="${user.firstName}" required><br>
+    <input type="text" placeholder="enter firstName"  name="firstName" 	value="${user.firstName}" required><br>
     
     <label for= "lastName" ><b>Last Name</b></label> 
-    <input type="text"placeholder="enter last name"  name="lastName" 	value="${user.lastName}" required><br>
+    <input type="text" placeholder="enter last name"  name="lastName" 	value="${user.lastName}" required><br>
     
       <label for= "email" ><b>Email Address</b></label> 
-    <input type="text"placeholder="enter email"  name="email" 	value="${user.email}" required><br>
+    <input type="text" placeholder="enter email"  name="email" 	value="${user.email}" required><br>
     
       <%-- <label for= "role" ><b>Applying to be a Mentor?</b></label> 
     <input type="text"placeholder="yes or no"  name="role" 	value="${user.role}" required><br>
@@ -142,14 +142,14 @@ a {
     
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-    <button type="submit" class="saveProfileChangesbtn">Save Profile Changes for ${user.username}</button>
+    <button type="submit" class="saveProfileChangesbtn" value="Updated User">Save Profile Changes for ${user.username}</button>
   </div>
 
 </form>
 <div>
 <form action="destroyProfile.do" method="POST">
         <input type="hidden" value="${user.id}"/> 
-        <button type="submit" class="deletebtn">Delete ${user.username}</button>
+        <button type="submit" class="deletebtn">Delete ${user.username} </button>
 	
           </div>   
 </form>

@@ -61,28 +61,39 @@ public class UserController {
 	
 	@RequestMapping(path = "userProfile.do", method = RequestMethod.GET)
 	public String displayProfile(User user, Model model, HttpSession session) {
-		model.addAttribute("user", session.getAttribute("loggedInUser"));
+
+		model.addAttribute("user", (session.getAttribute("loggedInUser")));
+		user = userDao.findUserById(user.getId());
+		
 		return "userProfileDetail";
 		
 	}
 
-
+	   //*------------------------------------
+	
 	@RequestMapping(path = "updateProfile.do", method = RequestMethod.POST)
-	public String userProfileDisplay(User user, Integer id, Model model, HttpSession session) {
+	public String updateUser(int id, User user, HttpSession session, Model model) {
+		userDao.updateUser(id, user);
 		User updatedUser = (User)(session.getAttribute("loggedInUser"));
-	User updated = userDao.updateUser(id, updatedUser);
-//		model.addAttribute("user", session.getAttribute("loggedInUser")); 
-		model.addAttribute("updatedUser", updated);
-		 //passing in the user currently logged in
+		updatedUser = userDao.findUserById(user.getId());
+		model.addAttribute("user", updatedUser);
 		return "index";
+	
 	}
+	   //*------------------------------------
 	
 	
-	@RequestMapping(path = "userCreateProfile.do", method = RequestMethod.GET)
-	public String userCreatePage() {
-		return "userCreateProfile";
-		
-	}
+	
+	
+	
+	
+	
+	
+//	@RequestMapping(path = "userCreateProfile.do", method = RequestMethod.GET)
+//	public String userCreatePage() {
+//		return "userCreateProfile";
+//		
+//	}
 
 	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
 	public ModelAndView addUser(User user) { 

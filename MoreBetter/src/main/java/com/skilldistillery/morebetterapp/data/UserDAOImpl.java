@@ -40,17 +40,17 @@ public class UserDAOImpl implements UserDAO {
 	public User updateUser(int id, User user) {
 		User updatedUser = em.find(User.class, id);
 	
-		updatedUser.setFirstName(updatedUser.getFirstName());
-		updatedUser.setLastName(updatedUser.getLastName());
-		updatedUser.setEmail(updatedUser.getEmail());
-		updatedUser.setRole(updatedUser.getRole());
-		updatedUser.setAge(updatedUser.getAge());
-		updatedUser.setUsername(updatedUser.getUsername());
-		updatedUser.setPassword(updatedUser.getPassword());
-		updatedUser.setEnabled(updatedUser.getEnabled());
-		updatedUser.setPicture(updatedUser.getPicture());
-		updatedUser.setBiography(updatedUser.getBiography());
-		em.persist(updatedUser);
+		updatedUser.setFirstName(user.getFirstName());
+		updatedUser.setLastName(user.getLastName());
+		updatedUser.setEmail(user.getEmail());
+		updatedUser.setRole(user.getRole());
+		updatedUser.setAge(user.getAge());
+		updatedUser.setUsername(user.getUsername());
+		updatedUser.setPassword(user.getPassword());
+		updatedUser.setEnabled(user.getEnabled());
+		updatedUser.setPicture(user.getPicture());
+		updatedUser.setBiography(user.getBiography());
+		
 		em.flush();
 		return updatedUser;
 	}
