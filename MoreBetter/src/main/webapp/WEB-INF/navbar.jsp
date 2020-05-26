@@ -23,7 +23,7 @@
 			</ul>
 
 			<c:choose>
-				<c:when test="${sessionScope.loggedInUser == null}">
+				<c:when test="${sessionScope.loggedInUser == null || sessionscope.loggedInUser.enabled==false}">
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="userCreateProfile.do"><span
