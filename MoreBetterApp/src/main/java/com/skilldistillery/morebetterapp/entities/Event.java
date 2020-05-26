@@ -99,12 +99,12 @@ public class Event {
 		this.eventMentor = eventMentor;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
-//				+ ", eventDate=" + eventDate + ", maxCapacity=" + maxCapacity + ", price=" + price + ", created="
-//				+ created + ", updated=" + updated + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
+				+ ", eventDate=" + eventDate + ", maxCapacity=" + maxCapacity + ", price=" + price + ", created="
+				+ created + ", updated=" + updated + "]";
+	}
 
 	public int getId() {
 		return id;

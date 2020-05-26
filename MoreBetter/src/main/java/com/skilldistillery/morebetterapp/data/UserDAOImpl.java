@@ -1,11 +1,14 @@
 package com.skilldistillery.morebetterapp.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.morebetterapp.entities.Event;
 import com.skilldistillery.morebetterapp.entities.User;
 
 @Service
@@ -92,6 +95,31 @@ public class UserDAOImpl implements UserDAO {
 	//____________________________________________________//
 	
 
+	
+	
+	//____________________userToEvent_____________________//
+	
+	
+	@Override
+	public List<Event> addUserToEvent(int uId, int eId) {
+	
+		Event eventToAddTo = em.find(Event.class, eId);
+	    User user = em.find(User.class, uId);
+		user.addEventAttended(eventToAddTo);
+		
+		em.persist(eventToAddTo);
+		em.persist(user);
+	
+		
+		return user.getEventsAttended();
+	}
+	
+	
+	
+	
+	//____________________________________________________//
+	
+	
 
 }
 

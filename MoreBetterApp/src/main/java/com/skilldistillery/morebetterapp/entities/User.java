@@ -64,6 +64,8 @@ public class User {
 	@OneToMany(mappedBy = "userAuthor")
 	private List<Article> writtenArticles;
 
+	
+	
 	@ManyToMany(mappedBy = "attendees")
 	private List<Event> eventsAttended;
 
