@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:formatNumber value="${value}" type="currency" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +16,21 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <jsp:include page="navbar.jsp"/>
 </head>
-<body>
-${category.name}
-${event.title}
-${event.description}
+<body class="eventbackground">
+
+<div class="container-fluid" id="eventblock">
+
+ <h1 class="text-center" id="jumboTitle">${category.name} Event:<br>"${event.title}"</h1>
+  <br>
+  <h1>${event.description}</h1>
+  <br>
+	<h3>Location: ${event.location}</h3>
+	<h3>Date: ${event.eventDate}</h3>
+	<h3>Price: <fmt:formatNumber value="${event.price}" type="currency"/></h3>
+	<h3>Date Created: ${event.created}</h3>
+	
+</div>
+
 <%-- <br>User ID : ${user.id}
 	<br>
 	<br>page would display an event for user, but would be editable for a mentor (test readonly)(disabled)
@@ -56,7 +69,7 @@ ${event.description}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<footer class="container-fluid text-center">
-	  <p>Footer Text</p>
+	 <p>Footer Text</p>
 	</footer>
 </body>
 </html>
