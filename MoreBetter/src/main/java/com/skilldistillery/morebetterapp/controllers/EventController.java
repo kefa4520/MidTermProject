@@ -62,9 +62,9 @@ public class EventController {
 	//------------------------------------------ADD EVENT-----------------------------------------------------//
 	
 	@RequestMapping(path = "viewAddEvent.do", method = RequestMethod.GET)
-	public ModelAndView goToAddEventPage(@RequestParam User mentor) throws SQLException { // addEvent view page for mentor to input data
+	public ModelAndView goToAddEventPage() throws SQLException { // addEvent view page for mentor to input data
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("mentor", mentor);
+		
 		mv.setViewName("createNewEvent");     //JSP for adding an event view
 
 		return mv;
@@ -72,10 +72,10 @@ public class EventController {
 	}
 
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.POST)
-	public ModelAndView addEvent(Event event) { // takes user input/process it/posts new trip
+	public ModelAndView addEvent(Event event, @RequestParam int cId) { // takes user input/process it/posts new trip
 		ModelAndView mv = new ModelAndView();
 
-		Event newEvent = eventDao.createEvent(event);
+		Event newEvent = eventDao.createEvent(event, cId);
 
 			mv.addObject("event", newEvent);
 			mv.setViewName("index");    // jsp for mentor to add event

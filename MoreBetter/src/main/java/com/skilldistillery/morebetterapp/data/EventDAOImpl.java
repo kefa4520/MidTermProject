@@ -29,7 +29,9 @@ public class EventDAOImpl implements EventDAO {
 //	}
 
 	@Override
-	public Event createEvent(Event event) {
+	public Event createEvent(Event event, int cId) {
+		Category category = em.find(Category.class, cId);
+		event.setCategory(category);
 		em.persist(event);
 		em.flush();
 		return event;

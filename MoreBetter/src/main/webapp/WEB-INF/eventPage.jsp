@@ -18,9 +18,10 @@
 
 	<c:choose>
 	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
-		<p>MENTOR</p>
+	
 		    <c:choose>
 		    <c:when test="${result == true}">
+		    
 			    <div class="alert alert-success" role="alert">
 				    <h2 class="text-center">Success! The event has been deleted!</h2>
 				</div>
@@ -28,6 +29,10 @@
 			  <div class="container">
 			    <h1 class="text-center" id="jumboTitle">${category.name} Event Page</h1>
 			    <p class="text-center">Better yourself with these awesome local ${category.name} Events!</p>
+			    <form action="viewAddEvent.do" method="GET">
+			    	<input type="hidden" name="id" value="${sessionScope.loggedInUser.id}"/>
+			    	<button type="submit" class="btn btn-default">Create New Event</button>
+			    </form>
 			  </div>
 			</div>
 		
@@ -55,6 +60,10 @@
 			  <div class="container">
 			    <h1 class="text-center" id="jumboTitle">${category.name} Event Page</h1>
 			    <p class="text-center">Better yourself with these awesome local ${category.name} Events!</p>
+			    <form action="viewAddEvent.do" method="GET">
+			    	<input type="hidden" name="id" value="${sessionScope.loggedInUser.id}"/>
+			    	<button type="submit" class="btn btn-success">Create New Event</button>
+			    </form>
 			  </div>
 			</div>
 		
@@ -83,6 +92,7 @@
 	<%-----IF THE USER IS NOT A MENTOR SEE THIS PAGE BELOW-----%>		
 		    <c:choose>
 		    <c:when test="${result == true}">
+		    
 			    <div class="alert alert-success" role="alert">
 				    <h2 class="text-center">Success! The event has been deleted!</h2>
 				</div>

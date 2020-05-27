@@ -69,56 +69,44 @@ a {
 </style>
 </head>
 <body>
-  <div class="container">
-<form action="addEvent.do" method="POST">
-    <h1>New Event Registration</h1>
-    <p>Please fill in this form to create a new event.</p>
-    <hr>
-    <label for="title"><b>Title</b></label>
-    <input type="text" placeholder="Enter Title" name="email" required>
-    
-    <label for="username"><b>Create a User Name</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
-    <label for="password"><b>Password</b></label>
-    <input type="text" placeholder="Enter Password" name="password" required>
-    
-    <label for="firstName"><b>First Name</b></label>
-    <input type="text" placeholder="Enter your first name" name="firstName" required>
-    
-     <label for="lastName"><b>Last Name</b></label>
-    <input type="text" placeholder="Enter your last name" name="lastName" required>
-    
-    
-     <label for="role"><b>Applying to be a Mentor?</b></label>
-  
-     <select id="role" name="role" required> 
-    	<option value="STANDARD">no</option>
-    	<option value="APPLICANT">yes</option>
-    </select><br><br>
-    
-    
-     <label for="age"><b>Age</b></label>
-    <input type="number" placeholder="Enter your age" name="age" ><br><br>
-    
-     <label for="biography"><b>Tell Us About Yourself</b></label>
-    <input type="text" placeholder="fun facts, experiences, what you're looking for..." name="biography" >
-    
-     <label for="picture"><b>insert a picture</b></label>
-    <input type="text" placeholder="insert photo URL here" name="picture" >
-    
-    
-    <input type="hidden" name="enabled" value="true">
-    
-    
-    
-    <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
-  
-  <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-  </div>
-	</form>
- </div>
+	  <div class="container">
+		<form action="addEvent.do" method="POST">
+			<input type="hidden" name="id" value="${sessionScope.loggedInUser.id}"/> 
+		    <h1>New Event Registration</h1>
+		    <p>Please fill in this form to create a new event.</p>
+		    <hr>
+		    <label for="title"><b>Title</b></label>
+		    <input type="text" placeholder="Enter Title" name="title" required>
+		    
+		    <label for="description"><b>Description</b></label>
+		    <input type="text" placeholder="Enter a Description of the Event" name="description" required>
+		    
+		    <label for="location"><b>Event Location</b></label>
+		    <input type="text" placeholder="Enter Event Location/Address" name="location" required>
+		    
+		    <label for="price"><b>Price</b></label>
+		    <input type="text" placeholder="Enter an Admission Price" name="price">
+		    
+		    <label for="capacity"><b>Max Capacity</b></label>
+		    <input type="number" placeholder="Enter the Maximum Attendee Capacity" name="maxCapacity">
+		    
+		    
+		    <label for="category"><b>Choose a Category</b></label>
+		  
+		    <select id="category" name="cId" required> 
+		    	<option value="1">Finance</option>
+		    	<option value="2">Mental Health</option>
+		    	<option value="3">Fitness</option>
+		    </select><br><br>
+		    
+		    
+		    <label for="date"><b>Date</b></label>
+		    <input type="datetime-local" name="eventDate" required><br><br>
+
+		    <hr>
+		    <p>By creating an Event you agree to our <a href="#">Terms & Privacy</a>.</p>
+		    <button type="submit" class="registerbtn">Create Event</button>
+		</form>
+ 	  </div>
 </body>
 </html>
