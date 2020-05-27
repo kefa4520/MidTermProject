@@ -14,7 +14,7 @@ import com.skilldistillery.morebetterapp.entities.User;
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -22,11 +22,11 @@ public class UserDAOImpl implements UserDAO {
 	public User findUserById(int id) {
 		return em.find(User.class, id);
 	}
-	
+
 	@Override
 	public User createUser(User user) {
 		em.persist(user);
-		em.flush();     
+		em.flush();
 		return user;
 	}
 
@@ -34,12 +34,12 @@ public class UserDAOImpl implements UserDAO {
 	public boolean deleteUserById(int id) {
 		User userToDelete = em.find(User.class, id);
 		userToDelete.setEnabled(false);
-		//em.remove(userToDelete);
+		// em.remove(userToDelete);
 		boolean stillContains = !em.contains(userToDelete);
 		em.flush();
 		return stillContains; // should return TRUE if deleted successfully.
 	}
-	
+
 //	@Override
 //	public User updateUser(User user) {
 //		EntityManager em = emf.createEntityManager();
@@ -75,10 +75,10 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
-	//________________Jeff Touched This________________//
+	// ________________Jeff Touched This________________//
 	@Override
 	public User updateUser(User user) {
-		User updatedUser = em.find(User.class,  user.getId());
+		User updatedUser = em.find(User.class, user.getId());
 		updatedUser.setFirstName(user.getFirstName());
 		updatedUser.setLastName(user.getLastName());
 		updatedUser.setEmail(user.getEmail());
@@ -90,49 +90,49 @@ public class UserDAOImpl implements UserDAO {
 		updatedUser.setPicture(user.getPicture());
 		updatedUser.setBiography(user.getBiography());
 		em.flush();
-		System.out.println("I AM AWESOME");
-		return updatedUser;
-	}	
-	//____________________________________________________//
-	
 
-	
-	
-	//____________________userToEvent_____________________//
-	
-	
+		return updatedUser;
+	}
+	// ____________________________________________________//
+
+	// ____________________userToEvent_____________________//
+
 	@Override
 	public List<Event> addUserToEvent(int uId, int eId) {
-	
+
 		Event eventToAddTo = em.find(Event.class, eId);
-	    User user = em.find(User.class, uId);
+		User user = em.find(User.class, uId);
 		user.addEventAttended(eventToAddTo);
-		
+
 		em.persist(eventToAddTo);
 		em.persist(user);
-	
-		
+
 		return user.getEventsAttended();
 	}
+
+	@Override
+	public List<Event> deleteUserFromEvent(int uId, int eId) {
+
+		Event deleteFromThis = em.find(Event.class, eId);
+		User user = em.find(User.class, uId);
+		
 	
+		
+		if (deleteFromThis != null) {
+			deleteFromThis.removeAttendee(user);
+			
+			
+			em.persist(deleteFromThis);
+			em.persist(user);
+
+		} 
+		
+		    em.flush();
+		
+			return user.getEventsAttended();
 	
-	
-	
-	//____________________________________________________//
-	
-	
+	}
+
+	// ____________________________________________________//
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

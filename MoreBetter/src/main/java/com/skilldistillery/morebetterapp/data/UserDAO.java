@@ -12,6 +12,7 @@ public interface UserDAO {
 //	public User updateUser(int id, User user);
 	
 	public List<Event> addUserToEvent(int uId, int eId);
+	public List<Event> deleteUserFromEvent(int uId, int eId);
 	
 	//__________________Jeff Touched This_________________________//
 	public User updateUser(User user);
