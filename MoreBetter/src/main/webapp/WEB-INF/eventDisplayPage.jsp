@@ -38,8 +38,8 @@
 		  <form action="updateEvent.do" method="POST">
 		    <div class="form-group">
 			<input type="hidden" name="id" value="${event.id}"/>
-			<input type="hidden" name="category" value="${category}"/>
-			<input type="hidden" name="eventMentor" value="${mentor}"/>
+			<%-- <input type="hidden" name="event.category" value="${event.category}"/> --%>
+		<%-- 	<input type="hidden" name="event.eventMentor" value="${event.eventMentor}"/> --%>
 			<input type="hidden" name="title" value="${event.title}"/>
 			<input type="hidden" name="description" value="${event.description}"/>
 			
@@ -49,7 +49,7 @@
 		    </div>
 		    <div class="form-group">
 		      <label for="category">Choose a Category:</label>
-		      <select name="categories" id="updateEventForm">
+		      <select name="updatedCategoryId" id="updateEventForm">
 		        <option value="1">Finance</option>
 		        <option value="2">Mental Health</option>
 		        <option value="3">Fitness</option>
@@ -57,7 +57,7 @@
 		    </div>
 		    <div class="form-group">
 		      <label for="Date">Date:</label>
-		      <input type="text" class="form-control" id="date" value="${event.eventDate}" name="date">
+		      <input type="datetime-local" class="form-control" id="date" value="${event.eventDate}" name="eventDate">
 		    </div>
 		    <button type="submit" class="btn btn-default">Update ${event.title}</button>
 		  </form>
