@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:formatNumber value="${value}" type="currency" />
+<fmt:formatNumber value="${value}" type="number" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +31,7 @@
 			<h3>Location: ${event.location}</h3>
 			<h3>Date: ${event.eventDate}</h3>
 			<h3>Price: <fmt:formatNumber value="${event.price}" type="currency"/></h3>
+			<h3>Max Capacity: ${event.maxCapacity}</h3>
 			<h3>Date Created: ${event.created}</h3>
 			
 			
@@ -44,12 +46,16 @@
 			<input type="hidden" name="description" value="${event.description}"/> --%>
 			
 			
-		      <label for="location">Title:</label>
-		      <input type="text" class="form-control" id="title" value="${event.title}" name="title">
-		      <label for="location">Description:</label>
-		      <input type="text" class="form-control" id="description" value="${event.description}" name="description">
+		      <label for="title">Title:</label>
+		      <input type="text" class="form-control" id="title" value="${event.title}" name="title" required>
+		      <label for="description">Description:</label>
+		      <input type="text" class="form-control" id="description" value="${event.description}" name="description" required>
 		      <label for="location">Location:</label>
-		      <input type="text" class="form-control" id="location" value="${event.location}" name="location">
+		      <input type="text" class="form-control" id="location" value="${event.location}" name="location" required>
+		      <label for="price">Price:</label>
+		      <input type="text" class="form-control" id="price" value="${event.price}" name="price">
+		      <label for="capacity">Event Capacity:</label>
+		      <input type="number" class="form-control" id="maxCapacity" value="${event.maxCapacity}" name="maxCapacity">
 		    </div>
 		    <div class="form-group">
 		      <label for="category">Choose a Category:</label>
@@ -61,10 +67,16 @@
 		    </div>
 			    <div class="form-group">
 			      <label for="Date">Date:</label>
-			      <input type="datetime-local" class="form-control" id="date" value="${event.eventDate}" name="eventDate">
+			      <input type="datetime-local" class="form-control" id="date" value="${event.eventDate}" name="eventDate" required>
 			    </div>
 		    <button type="submit" class="btn btn-default">Update ${event.title}</button>
 		  </form>
+		  	<div>
+				<form action="deleteEvent.do" method="POST">
+			        <input type="hidden" name="id" value="${event.id}"/> 
+			        <button type="submit" class="deletebtn">Delete ${event.title} Event</button>
+				</form>
+			</div>
 		</div>
 	  </div>
 		
@@ -87,6 +99,7 @@
 			<h3>Location: ${event.location}</h3>
 			<h3>Date: ${event.eventDate}</h3>
 			<h3>Price: <fmt:formatNumber value="${event.price}" type="currency"/></h3>
+			<h3>Max Capacity: ${event.maxCapacity}</h3>
 			<h3>Date Created: ${event.created}</h3>
 			
 			<c:choose>
