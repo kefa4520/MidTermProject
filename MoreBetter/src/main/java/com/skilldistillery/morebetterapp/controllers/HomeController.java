@@ -55,6 +55,10 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		User updatedUser = (User) (session.getAttribute("loggedInUser"));
 		User refreshedUser = userDao.findUserById(updatedUser.getId());
+		System.out.println("**************");
+		System.out.println(refreshedUser.getWrittenArticles());
+		System.out.println("**************");
+		
 
 		session.setAttribute("loggedInUser", refreshedUser);
 		mv.addObject("eventsToAttend", refreshedUser.getEventsAttended());
