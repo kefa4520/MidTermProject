@@ -33,6 +33,11 @@
 	<h3>Price: <fmt:formatNumber value="${event.price}" type="currency"/></h3>
 	<h3>Date Created: ${event.created}</h3>
 	
+		 <form action="removeFromEvent.do" method="POST">
+	         <input type="hidden" name="uId" value="${sessionScope.loggedInUser.id}"/> 
+		     <input type="hidden" name="eId" value="${event.id}"/> 
+		        <button type="submit" class="btn btn-default">Remove ${sessionScope.loggedInUser.firstName} ${sessionScope.loggedInUser.lastName} Event</button>
+		</form>
   		</div>
 	</div>
 	</c:forEach>

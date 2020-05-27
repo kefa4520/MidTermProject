@@ -31,42 +31,49 @@ public class HomeController {
 	private EventDAO eventDao;
 	@Autowired
 	private UserDAO userDao;
-	
-	@RequestMapping(path= {"/", "home.do"})
+
+	@RequestMapping(path = { "/", "home.do" })
 	public String home() {
 		return "index";
 	}
 
-	
-	
-	@RequestMapping(path = "addUserToEvent.do",params= {"uId", "eId"}, method = RequestMethod.POST)
-	public ModelAndView addUserToEvent(@RequestParam Integer uId, Integer eId, HttpSession session) throws SQLException { 
-		ModelAndView mv = new ModelAndView(); 
-		List <Event> events = userDao.addUserToEvent(uId, eId);
+	@RequestMapping(path = "addUserToEvent.do", params = { "uId", "eId" }, method = RequestMethod.POST)
+	public ModelAndView addUserToEvent(@RequestParam Integer uId, Integer eId, HttpSession session)
+			throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		List<Event> events = userDao.addUserToEvent(uId, eId);
 		mv.addObject("eventsToAttend", events);
-		
-		mv.setViewName("userEventsList");     //JSP for adding user
+
+		mv.setViewName("userEventsList"); // JSP for adding user
 
 		return mv;
 
 	}
-	
-	
-//	@RequestMapping(path = "userEvent.do")
-//	public String userEvent(Model model, HttpSession session) {
-//		User updatedUser = (User)(session.getAttribute("loggedInUser"));
-//		model.addAttribute("eventsToAttend", updatedUser.getEventsAttended());
-//		return "userEventsList";
-//	}
-	
+
 	@RequestMapping(path = "userEvents.do", method = RequestMethod.GET)
 	public ModelAndView userEvent(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		User updatedUser = (User)(session.getAttribute("loggedInUser"));
-		mv.addObject("eventsToAttend", updatedUser.getEventsAttended());
-		System.err.println(updatedUser.getEventsAttended());
+		User updatedUser = (User) (session.getAttribute("loggedInUser"));
+		User refreshedUser = userDao.findUserById(updatedUser.getId());
+
+		session.setAttribute("loggedInUser", refreshedUser);
+		mv.addObject("eventsToAttend", refreshedUser.getEventsAttended());
+
 		mv.setViewName("userEventsList");
 		return mv;
-		}
-	
+	}
+
+	@RequestMapping(path = "removeFromEvent.do", params = { "uId", "eId" }, method = RequestMethod.POST) // cannot
+																											// remove																							// id=1
+	public ModelAndView removeUserFromEvent(@RequestParam Integer uId, @RequestParam Integer eId, HttpSession session)
+			throws SQLException {
+		ModelAndView mv = new ModelAndView();
+		List<Event> events = userDao.deleteUserFromEvent(uId, eId);
+
+		mv.setViewName("redirect:userEvents.do"); // JSP for adding user
+
+		return mv;
+
+	}
+
 }
