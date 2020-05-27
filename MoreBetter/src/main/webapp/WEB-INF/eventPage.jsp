@@ -31,7 +31,7 @@
 			    <p class="text-center">Better yourself with these awesome local ${category.name} Events!</p>
 			    <form action="viewAddEvent.do" method="GET">
 			    	<input type="hidden" name="id" value="${sessionScope.loggedInUser.id}"/>
-			    	<button type="submit" class="btn btn-default">Create New Event</button>
+			    	<button type="submit" class="btn btn-success">Create New Event</button>
 			    </form>
 			  </div>
 			</div>
