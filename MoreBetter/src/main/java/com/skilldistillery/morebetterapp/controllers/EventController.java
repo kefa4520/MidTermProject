@@ -103,22 +103,24 @@ public class EventController {
 	
 	//------------------------------------------DELETE EVENT-----------------------------------------------------//
 	
-	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.GET)
-	public ModelAndView deleteEventViewPage() throws SQLException { // delete event view page for mentor
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("FIXME");     //JSP view for mentor to delete event
-
-		return mv;
-
-	}
+//	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.GET)
+//	public ModelAndView deleteEventViewPage() throws SQLException { // delete event view page for mentor
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("FIXME");     //JSP view for mentor to delete event
+//
+//		return mv;
+//
+//	}
 	
 	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.POST)
 	public ModelAndView deleteEvent(int id) throws SQLException { 
-
+		Event event = eventDao.findEventById(id);
 		ModelAndView mv = new ModelAndView();
-		eventDao.deleteEventById(id);
-
-		mv.setViewName("FIXME"); //JSP page to submit event delete
+		boolean result = eventDao.deleteEventById(id);
+		mv.addObject("eventsByCategory", categoryDao.displayAllEventsByCategory(event.getCategory().getId()));
+		mv.addObject("category", categoryDao.findCategoryById(id));
+		mv.addObject("result", result);
+		mv.setViewName("eventPage"); //JSP page to submit event delete
 		return mv;
 
 	}

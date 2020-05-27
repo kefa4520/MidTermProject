@@ -71,6 +71,12 @@
 			    </div>
 		    <button type="submit" class="btn btn-default">Update ${event.title}</button>
 		  </form>
+		  	<div>
+				<form action="deleteEvent.do" method="POST">
+			        <input type="hidden" name="id" value="${event.id}"/> 
+			        <button type="submit" class="deletebtn">Delete ${event.title} Event</button>
+				</form>
+			</div>
 		</div>
 	  </div>
 		
