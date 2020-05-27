@@ -15,6 +15,7 @@ import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
 import com.skilldistillery.morebetterapp.entities.Category;
 import com.skilldistillery.morebetterapp.entities.Event;
+import com.skilldistillery.morebetterapp.entities.User;
 
 @Controller
 public class EventController {
@@ -76,12 +77,17 @@ public class EventController {
 	//------------------------------------------UPDATE EVENT-----------------------------------------------------//
 	
 	
-	@RequestMapping(path = "updateEvent.do")
-	public ModelAndView updateEvent(int id, Event event) throws SQLException {
-																									
+	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
+	public ModelAndView updateEvent(int id, Event event, Category category, User mentor) {
+		System.out.println("************************************************************");
+		System.out.println("Event object:" + event);
+		System.out.println("Event category:" + event.getCategory());
+		System.out.println("************************************************************");
 		ModelAndView mv = new ModelAndView();
 			mv.addObject("event", eventDao.updateEvent(id, event));
-			mv.setViewName("FIXME");   //
+			mv.addObject("category", event.getCategory());
+			mv.addObject("mentor", event.getEventMentor());
+			mv.setViewName("index");   //
 			return mv;
 	}
 	
@@ -122,6 +128,7 @@ public class EventController {
 			Category category = event.getCategory();
 			model.addAttribute("event", event);
 			model.addAttribute("category", category);
+			model.addAttribute("mentor", event.getEventMentor());
 			return "eventDisplayPage";
 		}
 	//---------------------------------------DISPLAY ALL EVENTS--------------------------------------------------//
