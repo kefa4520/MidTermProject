@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.morebetterapp.entities.Article;
+import com.skilldistillery.morebetterapp.entities.Category;
+import com.skilldistillery.morebetterapp.entities.User;
 
 @Service
 @Transactional
@@ -26,7 +28,15 @@ public class ArticleDAOImpl implements ArticleDAO {
 //	}
 
 	@Override
-	public Article createArticle(Article article) {
+	public Article createArticle(Article article, int categoryId, User author) {
+		Category category = em.find(Category.class, categoryId);
+		author= em.find(User.class, author.getId());
+		article.setCategory(category);
+		article.setUserAuthor(author);
+//		author.getWrittenArticles().get(3);
+		
+		author.addArticle(article);
+		em.persist(category);
 		em.persist(article);
 		em.flush();
 		return article;

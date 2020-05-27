@@ -19,6 +19,10 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.Hibernate;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class User {
 
@@ -73,6 +77,7 @@ public class User {
 	@OneToMany(mappedBy = "eventMentor")
 	private List<Event> eventsOwned;
 
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(mappedBy = "userReaders")
 	private List<Article> readArticles;
 
@@ -206,7 +211,9 @@ public class User {
 // end add/remove category----------------------------------
 
 // begin add/remove  Article	----------------------------------
+	
 	public void addArticle(Article article) {
+
 		if (writtenArticles == null)
 			writtenArticles = new ArrayList<>();
 

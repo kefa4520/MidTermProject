@@ -15,10 +15,26 @@
   <jsp:include page="navbar.jsp"/>
 </head>
 <body>
+
+
 	<div class="jumbotron jumbotron-fluid">
 	  <div class="container">
 	    <h1 class="text-center" id="jumboTitle">${category.name} Articles</h1>
 	    <p class="text-center">To Help Make Your Life Better</p>
+	    
+<c:choose>
+
+	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
+	
+	<div style="text-align:center">		
+ <form action="addArticle.do" method="GET">
+    <button type="submit" class="btn btn-success" align="center">Add Article</button>
+ </form>	
+ </div>
+
+</c:when>
+</c:choose>	
+	    
 	  </div>
 	</div>
 
@@ -28,8 +44,20 @@
   		<div class="container">
 		<a href="${article.reference}" target="_blank">
     		<h1 class="display-3">${article.title}</h1>
+    		
 		</a>
     		<p class="lead">${article.contents}</p>
+    		
+<c:choose>
+	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
+ <form action="deleteArticle.do" method="POST">	
+   	 <input type="hidden" name="id" value="${article.id}"/> 
+     <button type="submit" class="btn btn-danger">Delete Artickle my Pickle</button>
+ 
+</form>
+</c:when>
+</c:choose>	
+    		
   		</div>
 	</div>
 	</c:forEach>
