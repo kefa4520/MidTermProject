@@ -40,12 +40,16 @@
 			<input type="hidden" name="id" value="${event.id}"/>
 			<%-- <input type="hidden" name="event.category" value="${event.category}"/> --%>
 		<%-- 	<input type="hidden" name="event.eventMentor" value="${event.eventMentor}"/> --%>
-			<input type="hidden" name="title" value="${event.title}"/>
-			<input type="hidden" name="description" value="${event.description}"/>
+	<%-- 		<input type="hidden" name="title" value="${event.title}"/>
+			<input type="hidden" name="description" value="${event.description}"/> --%>
 			
 			
+		      <label for="location">Title:</label>
+		      <input type="text" class="form-control" id="title" value="${event.title}" name="title">
+		      <label for="location">Description:</label>
+		      <input type="text" class="form-control" id="description" value="${event.description}" name="description">
 		      <label for="location">Location:</label>
-		      <input type="text" class="form-control" id="email" value="${event.location}" name="location">
+		      <input type="text" class="form-control" id="location" value="${event.location}" name="location">
 		    </div>
 		    <div class="form-group">
 		      <label for="category">Choose a Category:</label>

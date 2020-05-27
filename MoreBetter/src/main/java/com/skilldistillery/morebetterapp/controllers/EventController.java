@@ -98,7 +98,7 @@ public class EventController {
 			mv.addObject("event", eventDao.updateEvent(id, event, updatedCategoryId));
 			mv.addObject("category", event.getCategory());
 			mv.addObject("mentor", event.getEventMentor());
-			mv.setViewName("index");   //
+			mv.setViewName("eventDisplayPage");   //
 			return mv;
 	}
 	
