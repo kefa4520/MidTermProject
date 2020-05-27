@@ -35,8 +35,15 @@
 			
 		<div class="container">
 		  <h2>Update Event</h2>
-		  <form action="updateEvent.do">
+		  <form action="updateEvent.do" method="POST">
 		    <div class="form-group">
+			<input type="hidden" name="id" value="${event.id}"/>
+			<input type="hidden" name="category" value="${category}"/>
+			<input type="hidden" name="eventMentor" value="${mentor}"/>
+			<input type="hidden" name="title" value="${event.title}"/>
+			<input type="hidden" name="description" value="${event.description}"/>
+			
+			
 		      <label for="location">Location:</label>
 		      <input type="text" class="form-control" id="email" value="${event.location}" name="location">
 		    </div>
@@ -52,16 +59,10 @@
 		      <label for="Date">Date:</label>
 		      <input type="text" class="form-control" id="date" value="${event.eventDate}" name="date">
 		    </div>
-		
-		    <button type="submit" class="btn btn-default">Submit</button>
+		    <button type="submit" class="btn btn-default">Update ${event.title}</button>
 		  </form>
 		</div>
-			<div>
-		<form action="updateEvent.do" method="POST">
-	        <input type="hidden" value="${event.id}"/> 
-	        <button type="submit" class="btn btn-default">Update ${event.title}</button>
-		</form>
-	</div>
+	
 		</div>
 		<p>Enabled User<p>
 	
