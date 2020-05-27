@@ -26,6 +26,7 @@ import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
 import com.skilldistillery.morebetterapp.entities.Category;
 import com.skilldistillery.morebetterapp.entities.Event;
+import com.skilldistillery.morebetterapp.entities.User;
 
 @Controller
 public class EventController {
@@ -60,23 +61,24 @@ public class EventController {
 	
 	//------------------------------------------ADD EVENT-----------------------------------------------------//
 	
-	@RequestMapping(path = "addEvent.do")
+	@RequestMapping(path = "viewAddEvent.do", method = RequestMethod.GET)
 	public ModelAndView goToAddEventPage() throws SQLException { // addEvent view page for mentor to input data
-		ModelAndView mv = new ModelAndView(); 
-		mv.setViewName("FIXME");     //JSP for adding an event view
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("createNewEvent");     //JSP for adding an event view
 
 		return mv;
 
 	}
 
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.POST)
-	public ModelAndView addEvent(Event event) { // takes user input/process it/posts new trip
+	public ModelAndView addEvent(Event event, @RequestParam int cId, @RequestParam int mentorId) { // takes user input/process it/posts new trip
 		ModelAndView mv = new ModelAndView();
 
-		Event newEvent = eventDao.createEvent(event);
+		Event newEvent = eventDao.createEvent(event, cId, mentorId);
 
 			mv.addObject("event", newEvent);
-			mv.setViewName("FIXME");    // jsp for mentor to add event
+			mv.setViewName("index");    // jsp for mentor to add event
 			return mv;
 		}
 
@@ -103,22 +105,24 @@ public class EventController {
 	
 	//------------------------------------------DELETE EVENT-----------------------------------------------------//
 	
-	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.GET)
-	public ModelAndView deleteEventViewPage() throws SQLException { // delete event view page for mentor
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("FIXME");     //JSP view for mentor to delete event
-
-		return mv;
-
-	}
+//	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.GET)
+//	public ModelAndView deleteEventViewPage() throws SQLException { // delete event view page for mentor
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("FIXME");     //JSP view for mentor to delete event
+//
+//		return mv;
+//
+//	}
 	
 	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.POST)
 	public ModelAndView deleteEvent(int id) throws SQLException { 
-
+		Event event = eventDao.findEventById(id);
 		ModelAndView mv = new ModelAndView();
-		eventDao.deleteEventById(id);
-
-		mv.setViewName("FIXME"); //JSP page to submit event delete
+		boolean result = eventDao.deleteEventById(id);
+		mv.addObject("eventsByCategory", categoryDao.displayAllEventsByCategory(event.getCategory().getId()));
+		mv.addObject("category", categoryDao.findCategoryById(id));
+		mv.addObject("result", result);
+		mv.setViewName("eventPage"); //JSP page to submit event delete
 		return mv;
 
 	}
