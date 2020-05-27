@@ -89,11 +89,6 @@ public class EventController {
 	
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
 	public ModelAndView updateEvent(int id, Event event, @RequestParam int updatedCategoryId) {
-		System.out.println("************************************************************");
-		System.out.println("Event object:" + event);
-		System.out.println("Event Mentor:" + event.getEventMentor());
-		System.out.println("Updated category id:" + updatedCategoryId);
-		System.out.println("************************************************************");
 		ModelAndView mv = new ModelAndView();
 			mv.addObject("event", eventDao.updateEvent(id, event, updatedCategoryId));
 			mv.addObject("category", event.getCategory());

@@ -49,7 +49,7 @@ public class EventDAOImpl implements EventDAO {
 		Event updatedEvent = em.find(Event.class, id);
 		Category category = em.find(Category.class, updatedCategoryId);
 		updatedEvent.setCategory(category);
-//		updatedEvent.setEventMentor(event.getEventMentor());
+//		updatedEvent.setEventMentor(event.getEventMentor()); // Original mentor should not be changed, another mentor can update the event though
 		updatedEvent.setLocation(event.getLocation());
 		updatedEvent.setTitle(event.getTitle());
 		updatedEvent.setDescription(event.getDescription());
