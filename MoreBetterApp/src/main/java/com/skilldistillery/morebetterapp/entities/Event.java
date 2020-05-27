@@ -1,5 +1,7 @@
 package com.skilldistillery.morebetterapp.entities;
 
+
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -28,9 +32,10 @@ public class Event {
 	private String title;
 	private String description;
 	private String location;
-
+	
+//	@Temporal(value = TemporalType.DATE)
 	@Column(name = "event_date")
-	private String eventDate;
+	private LocalDateTime eventDate;
 
 	@Column(name = "max_capacity")
 	private Integer maxCapacity;
@@ -103,7 +108,7 @@ public class Event {
 	public String toString() {
 		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", location=" + location
 				+ ", eventDate=" + eventDate + ", maxCapacity=" + maxCapacity + ", price=" + price + ", created="
-				+ created + ", updated=" + updated + "]";
+				+ created + ", updated=" + updated + ", category=" + category + ", eventMentor=" + eventMentor + "]";
 	}
 
 	public int getId() {
@@ -138,11 +143,11 @@ public class Event {
 		this.location = location;
 	}
 
-	public String getEventDate() {
+	public LocalDateTime getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(String eventDate) {
+	public void setEventDate(LocalDateTime eventDate) {
 		this.eventDate = eventDate;
 	}
 

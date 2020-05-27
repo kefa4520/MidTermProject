@@ -1,12 +1,23 @@
 package com.skilldistillery.morebetterapp.controllers;
 
+import java.beans.PropertyEditorSupport;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.morebetterapp.data.ArticleDAO;
@@ -15,7 +26,6 @@ import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
 import com.skilldistillery.morebetterapp.entities.Category;
 import com.skilldistillery.morebetterapp.entities.Event;
-import com.skilldistillery.morebetterapp.entities.User;
 
 @Controller
 public class EventController {
@@ -78,16 +88,12 @@ public class EventController {
 	
 	
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public ModelAndView updateEvent(int id, Event event, Category category, User mentor) {
-		System.out.println("************************************************************");
-		System.out.println("Event object:" + event);
-		System.out.println("Event category:" + event.getCategory());
-		System.out.println("************************************************************");
+	public ModelAndView updateEvent(int id, Event event, @RequestParam int updatedCategoryId) {
 		ModelAndView mv = new ModelAndView();
-			mv.addObject("event", eventDao.updateEvent(id, event));
+			mv.addObject("event", eventDao.updateEvent(id, event, updatedCategoryId));
 			mv.addObject("category", event.getCategory());
 			mv.addObject("mentor", event.getEventMentor());
-			mv.setViewName("index");   //
+			mv.setViewName("eventDisplayPage");   //
 			return mv;
 	}
 	
@@ -131,6 +137,49 @@ public class EventController {
 			model.addAttribute("mentor", event.getEventMentor());
 			return "eventDisplayPage";
 		}
-	//---------------------------------------DISPLAY ALL EVENTS--------------------------------------------------//
+	//---------------------------------------DATE BINDER--------------------------------------------------//
 	
+		
+		@InitBinder
+		public void initBinder(WebDataBinder webDataBinder) {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat timeFormat = new SimpleDateFormat("HH:MM");
+			SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+			dateFormat.setLenient(true);
+//			dateTimeFormat.setLenient(true);
+			webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+			webDataBinder.registerCustomEditor(LocalDateTime.class, new CustomDateEditor(dateTimeFormat, true));
+			webDataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+				@Override
+				public void setAsText(String text) throws IllegalArgumentException {
+					setValue(LocalDate.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+				}
+				@Override
+				public String getAsText() throws IllegalArgumentException {
+					return DateTimeFormatter.ofPattern("yyyy-MM-dd").format((LocalDate) getValue());
+				}
+			});
+			webDataBinder.registerCustomEditor(LocalTime.class, new PropertyEditorSupport() {
+				@Override
+				public void setAsText(String text) throws IllegalArgumentException {
+					setValue(LocalTime.parse(text, DateTimeFormatter.ofPattern("HH:MM")));
+				}
+				@Override
+				public String getAsText() throws IllegalArgumentException {
+					return DateTimeFormatter.ofPattern("HH:MM").format((LocalDate) getValue());
+				}
+			});
+			webDataBinder.registerCustomEditor(LocalDateTime.class, new PropertyEditorSupport() {
+				@Override
+				public void setAsText(String text) throws IllegalArgumentException {
+					setValue(LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
+				}
+				@Override
+				public String getAsText() throws IllegalArgumentException {
+					return DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm").format((LocalDateTime) getValue());
+				}
+			});
+	}
+		
+		
 }

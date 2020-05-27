@@ -7,5 +7,5 @@ public interface EventDAO {
 //	public Event findEventByTitle(String title); // Stubbed out if we need it
 	public Event createEvent(Event event);
 	public boolean deleteEventById(int id);
-	public Event updateEvent(int id, Event event);
+	public Event updateEvent(int id, Event event, int updatedCategoryId);
 }

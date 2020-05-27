@@ -38,33 +38,36 @@
 		  <form action="updateEvent.do" method="POST">
 		    <div class="form-group">
 			<input type="hidden" name="id" value="${event.id}"/>
-			<input type="hidden" name="category" value="${category}"/>
-			<input type="hidden" name="eventMentor" value="${mentor}"/>
-			<input type="hidden" name="title" value="${event.title}"/>
-			<input type="hidden" name="description" value="${event.description}"/>
+			<%-- <input type="hidden" name="event.category" value="${event.category}"/> --%>
+		<%-- 	<input type="hidden" name="event.eventMentor" value="${event.eventMentor}"/> --%>
+	<%-- 		<input type="hidden" name="title" value="${event.title}"/>
+			<input type="hidden" name="description" value="${event.description}"/> --%>
 			
 			
+		      <label for="location">Title:</label>
+		      <input type="text" class="form-control" id="title" value="${event.title}" name="title">
+		      <label for="location">Description:</label>
+		      <input type="text" class="form-control" id="description" value="${event.description}" name="description">
 		      <label for="location">Location:</label>
-		      <input type="text" class="form-control" id="email" value="${event.location}" name="location">
+		      <input type="text" class="form-control" id="location" value="${event.location}" name="location">
 		    </div>
 		    <div class="form-group">
 		      <label for="category">Choose a Category:</label>
-		      <select name="categories" id="updateEventForm">
+		      <select name="updatedCategoryId" id="updateEventForm">
 		        <option value="1">Finance</option>
 		        <option value="2">Mental Health</option>
 		        <option value="3">Fitness</option>
 		  	  </select>
 		    </div>
-		    <div class="form-group">
-		      <label for="Date">Date:</label>
-		      <input type="text" class="form-control" id="date" value="${event.eventDate}" name="date">
-		    </div>
+			    <div class="form-group">
+			      <label for="Date">Date:</label>
+			      <input type="datetime-local" class="form-control" id="date" value="${event.eventDate}" name="eventDate">
+			    </div>
 		    <button type="submit" class="btn btn-default">Update ${event.title}</button>
 		  </form>
 		</div>
-	
-		</div>
-		<p>Enabled User<p>
+	  </div>
+		
 	
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
