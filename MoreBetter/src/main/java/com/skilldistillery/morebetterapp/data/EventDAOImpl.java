@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.morebetterapp.entities.Category;
 import com.skilldistillery.morebetterapp.entities.Event;
+import com.skilldistillery.morebetterapp.entities.User;
 
 @Service
 @Transactional
@@ -29,9 +30,12 @@ public class EventDAOImpl implements EventDAO {
 //	}
 
 	@Override
-	public Event createEvent(Event event, int cId) {
+	public Event createEvent(Event event, int cId, int mentorId) {
+		
 		Category category = em.find(Category.class, cId);
+		User mentor = em.find(User.class, mentorId);
 		event.setCategory(category);
+		event.setEventMentor(mentor);
 		em.persist(event);
 		em.flush();
 		return event;

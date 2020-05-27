@@ -71,7 +71,7 @@ a {
 <body>
 	  <div class="container">
 		<form action="addEvent.do" method="POST">
-			<input type="hidden" name="id" value="${sessionScope.loggedInUser.id}"/> 
+			<input type="hidden" name="mentorId" value="${sessionScope.loggedInUser.id}"/> 
 		    <h1>New Event Registration</h1>
 		    <p>Please fill in this form to create a new event.</p>
 		    <hr>
@@ -94,9 +94,9 @@ a {
 		    <label for="category"><b>Choose a Category</b></label>
 		  
 		    <select id="category" name="cId" required> 
-		    	<option value="1">Finance</option>
-		    	<option value="2">Mental Health</option>
-		    	<option value="3">Fitness</option>
+		    	<option type="number" value="1">Finance</option>
+		    	<option type="number" value="2">Mental Health</option>
+		    	<option type="number" value="3">Fitness</option>
 		    </select><br><br>
 		    
 		    

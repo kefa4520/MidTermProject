@@ -72,10 +72,10 @@ public class EventController {
 	}
 
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.POST)
-	public ModelAndView addEvent(Event event, @RequestParam int cId) { // takes user input/process it/posts new trip
+	public ModelAndView addEvent(Event event, @RequestParam int cId, @RequestParam int mentorId) { // takes user input/process it/posts new trip
 		ModelAndView mv = new ModelAndView();
 
-		Event newEvent = eventDao.createEvent(event, cId);
+		Event newEvent = eventDao.createEvent(event, cId, mentorId);
 
 			mv.addObject("event", newEvent);
 			mv.setViewName("index");    // jsp for mentor to add event
