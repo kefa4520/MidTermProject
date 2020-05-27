@@ -26,6 +26,7 @@ import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
 import com.skilldistillery.morebetterapp.entities.Category;
 import com.skilldistillery.morebetterapp.entities.Event;
+import com.skilldistillery.morebetterapp.entities.User;
 
 @Controller
 public class EventController {
@@ -60,10 +61,11 @@ public class EventController {
 	
 	//------------------------------------------ADD EVENT-----------------------------------------------------//
 	
-	@RequestMapping(path = "addEvent.do")
-	public ModelAndView goToAddEventPage() throws SQLException { // addEvent view page for mentor to input data
-		ModelAndView mv = new ModelAndView(); 
-		mv.setViewName("FIXME");     //JSP for adding an event view
+	@RequestMapping(path = "viewAddEvent.do", method = RequestMethod.GET)
+	public ModelAndView goToAddEventPage(@RequestParam User mentor) throws SQLException { // addEvent view page for mentor to input data
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("mentor", mentor);
+		mv.setViewName("createNewEvent");     //JSP for adding an event view
 
 		return mv;
 
@@ -76,7 +78,7 @@ public class EventController {
 		Event newEvent = eventDao.createEvent(event);
 
 			mv.addObject("event", newEvent);
-			mv.setViewName("FIXME");    // jsp for mentor to add event
+			mv.setViewName("index");    // jsp for mentor to add event
 			return mv;
 		}
 
