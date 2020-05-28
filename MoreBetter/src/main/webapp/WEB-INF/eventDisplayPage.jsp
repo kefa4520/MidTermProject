@@ -17,7 +17,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <jsp:include page="navbar.jsp"/>
 </head>
-<body class="eventbackground">
+<body class="eventbackground" id="eventblock">
 
 	<c:choose>
 	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
@@ -69,13 +69,22 @@
 			      <label for="Date">Date:</label>
 			      <input type="datetime-local" class="form-control" id="date" value="${event.eventDate}" name="eventDate" required>
 			    </div>
-		    <button type="submit" class="btn btn-default">Update ${event.title}</button>
+			    <div style="text-align:center">
+		    		<button type="submit" class="btn btn-success">Update ${event.title}</button>
+		    	</div>
 		  </form>
-		  	<div>
+		  	<div style="text-align:center">
 				<form action="deleteEvent.do" method="POST">
 			        <input type="hidden" name="id" value="${event.id}"/> 
-			        <button type="submit" class="deletebtn">Delete ${event.title} Event</button>
+			        <button type="submit" class="btn btn-danger">Delete ${event.title} Event</button>
 				</form>
+			</div>
+			<div style="text-align:center">
+			<form action="addUserToEvent.do" method="POST">
+		        <input type="hidden" name="uId" value="${sessionScope.loggedInUser.id}"/> 
+		        <input type="hidden" name="eId" value="${event.id}"/> 
+		        <button type="submit" class="btn btn-success">Add ${sessionScope.loggedInUser.firstName} ${sessionScope.loggedInUser.lastName}</button>
+			</form>
 			</div>
 		</div>
 	  </div>
