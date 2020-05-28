@@ -18,7 +18,11 @@
 				<!-- <li></li> -->
 				<!-- <li class="active"><a href="home.do">Home</a></li> -->
 				<li><a href="#">About</a></li>
-				<li><a href="#">Projects</a></li>
+				<c:choose>
+				<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
+				<li><a href="userStatus.do">Manage Users</a></li>
+				</c:when>
+				</c:choose>
 				<li><a href="#">Contact</a></li>
 			</ul>
 

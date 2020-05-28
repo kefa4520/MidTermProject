@@ -134,5 +134,41 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	// ____________________________________________________//
+	
+	
+	// ______________________for Admin_____________________//
+	
+	
+	
+	@Override
+	public User disableUser(int id) {
+		User user = em.find(User.class, id);
+		user.setEnabled(false);
+		em.persist(user);
+		em.flush();
+		
+		return null;
+	}
+	
+	@Override
+	public User enableUser(int id) {
+		
+		User user = em.find(User.class, id);
+		user.setEnabled(true);
+		em.persist(user);
+		em.flush();
+		
+		return null;
+		
+	}
+	
+	
+	@Override
+	public List<User> findAll() {
+		String jpql = "SELECT u FROM User u";
+		return em.createQuery(jpql, User.class).getResultList();
+	}
+	
 
+	// ____________________________________________________//
 }
