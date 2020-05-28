@@ -49,13 +49,13 @@ class UserTest {
 	void test1() {
 
 		assertNotNull(user);
-		assertEquals("Joe", user.getFirstName());
-		assertEquals("Mama", user.getLastName());
-		assertEquals("joe.mama@user.mail", user.getEmail());
-		assertEquals(Role.STANDARD, user.getRole());
-		assertEquals(35, user.getAge());
-		assertEquals("joemama", user.getUsername());
-		assertEquals("joemama", user.getPassword());
+		assertEquals("Jeff", user.getFirstName());
+		assertEquals("Lopez", user.getLastName());
+		assertEquals("jeff.o.admin@user.mail", user.getEmail());
+		assertEquals(Role.MENTOR, user.getRole());
+		assertEquals(34, user.getAge());
+		assertEquals("jefflopez", user.getUsername());
+		assertEquals("jefflopez", user.getPassword());
 		assertEquals(true, user.getEnabled());
 		assertEquals(null, user.getPicture());
 		assertEquals(null, user.getBiography());
@@ -94,7 +94,7 @@ class UserTest {
 		assertNotNull(user);
 		assertNotNull(user.getEventsAttended()); // get events to eventsAttended
 		assertTrue(user.getEventsAttended().size() > 0);
-		assertEquals("Why financial literacy matters", user.getEventsAttended().get(0).getTitle());
+		assertEquals("Social Media Online Summit 2020", user.getEventsAttended().get(0).getTitle());
 
 	}
 

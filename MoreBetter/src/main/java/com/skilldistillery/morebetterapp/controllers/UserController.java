@@ -44,7 +44,7 @@ public class UserController {
 		} else {
 			session.setAttribute("loggedInUser", currentUser);
 			model.addAttribute("user", currentUser);
-			return "welcome";
+			return "index";
 		}
 	}
 
@@ -106,7 +106,7 @@ public class UserController {
 		User newUser = userDao.createUser(user);
 		model.addAttribute("user", newUser);
 		session.setAttribute("loggedInUser", newUser);
-		return "welcome";
+		return "redirect:home.do";
 	}
 	// _______________________________________________________________//
 

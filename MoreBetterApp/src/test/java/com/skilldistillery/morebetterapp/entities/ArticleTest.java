@@ -56,7 +56,7 @@ class ArticleTest {
 		assertEquals(2020, article.getCreated().getYear());
 		assertEquals(4, article.getCreated().getMonthValue());
 		assertEquals(10, article.getCreated().getDayOfMonth());
-		assertEquals("", article.getReference());
+		assertEquals("https://careerwise.minnstate.edu/mymncareers/finish-school/long-short-goals.html", article.getReference());
 
 	}
 
@@ -65,7 +65,7 @@ class ArticleTest {
 	@DisplayName("testing that article to userAuthor mapping work")
 	void test2() {
 		assertNotNull(article);
-		assertEquals("Joe", article.getUserAuthor().getFirstName());
+		assertEquals("Jeff", article.getUserAuthor().getFirstName());
 	}
 
 	@Test
