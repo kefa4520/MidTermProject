@@ -60,7 +60,7 @@ class CategoryTest {
 	@DisplayName("testing that category to event works")
 	void test2() {
 		assertNotNull(category);
-		assertEquals("Why financial literacy matters", category.getEvents().get(0).getTitle()); 
+		assertEquals("Social Media Online Summit 2020", category.getEvents().get(0).getTitle()); 
 		
 	}
 	
