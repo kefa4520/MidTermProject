@@ -22,7 +22,7 @@
 	<c:choose>
 	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
 
-		<div class="container-fluid" id="eventblock">
+		<div class="container-fluid">
 		
 		 <h1 class="text-center" id="jumboTitle">${category.name} Event:<br>"${event.title}"</h1>
 		  <br>

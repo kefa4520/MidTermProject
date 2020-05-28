@@ -18,6 +18,7 @@ import com.skilldistillery.morebetterapp.data.CategoryDAO;
 import com.skilldistillery.morebetterapp.data.EventDAO;
 import com.skilldistillery.morebetterapp.data.UserDAO;
 import com.skilldistillery.morebetterapp.entities.Event;
+import com.skilldistillery.morebetterapp.entities.Role;
 import com.skilldistillery.morebetterapp.entities.User;
 
 @Controller
@@ -44,7 +45,7 @@ public class HomeController {
 		List<Event> events = userDao.addUserToEvent(uId, eId);
 		mv.addObject("eventsToAttend", events);
 
-		mv.setViewName("userEventsList"); // JSP for adding user
+		mv.setViewName("userEventsList");
 
 		return mv;
 
@@ -55,10 +56,6 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		User updatedUser = (User) (session.getAttribute("loggedInUser"));
 		User refreshedUser = userDao.findUserById(updatedUser.getId());
-		System.out.println("**************");
-		System.out.println(refreshedUser.getWrittenArticles());
-		System.out.println("**************");
-		
 
 		session.setAttribute("loggedInUser", refreshedUser);
 		mv.addObject("eventsToAttend", refreshedUser.getEventsAttended());
@@ -67,17 +64,53 @@ public class HomeController {
 		return mv;
 	}
 
-	@RequestMapping(path = "removeFromEvent.do", params = { "uId", "eId" }, method = RequestMethod.POST) // cannot
-																											// remove																							// id=1
+	@RequestMapping(path = "removeFromEvent.do", params = { "uId", "eId" }, method = RequestMethod.POST)
+	// id=1
 	public ModelAndView removeUserFromEvent(@RequestParam Integer uId, @RequestParam Integer eId, HttpSession session)
 			throws SQLException {
 		ModelAndView mv = new ModelAndView();
 		List<Event> events = userDao.deleteUserFromEvent(uId, eId);
 
-		mv.setViewName("redirect:userEvents.do"); // JSP for adding user
+		mv.setViewName("redirect:userEvents.do");
 
 		return mv;
 
+	}
+
+	// ______________________________for Admin______________________________//
+	
+	@RequestMapping(path = "userStatus.do", method = RequestMethod.GET)
+	public ModelAndView userStatus() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("users", userDao.findAll());
+		mv.setViewName("adminBoard");
+		return mv;
+	}
+	
+	
+
+	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST)
+	public String disableUser(HttpSession session, Integer uId, Model model) {
+		User currentUser = (User) session.getAttribute("loggedInUser");
+		if (currentUser.getRole().equals(Role.MENTOR)) {
+			userDao.disableUser(uId);
+			model.addAttribute("users", userDao.findAll());
+			return "redirect:userStatus.do";
+		} else {
+			return "index";
+		}
+	}
+
+	@RequestMapping(path = "activateUser.do", method = RequestMethod.POST)
+	public String activateUser(HttpSession session, Integer uId, Model model) {
+		User currentUser = (User) session.getAttribute("loggedInUser");
+		if (currentUser.getRole().equals(Role.MENTOR)) {
+			userDao.enableUser(uId);
+			model.addAttribute("users", userDao.findAll());
+			return "redirect:userStatus.do";
+		} else {
+			return "index";
+		}
 	}
 
 }
