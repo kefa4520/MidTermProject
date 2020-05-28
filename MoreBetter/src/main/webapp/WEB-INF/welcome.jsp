@@ -14,13 +14,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <jsp:include page="navbar.jsp"/>
 </head>
-<body></body>
+<body>
 <div class="container bg-overlay">
 	<div class="row text-center">
 	<br>
 		<h1><strong>Welcome ${user.firstName} ${user.lastName}.</strong></h1>
 		<br>
-        <img src="${user.picture}" class="img-responsive, img-circle" alt="user picture"width="340" height="400">
+        <img src="https://www.popexpresso.com/wp-content/uploads/2019/03/rickastley.jpg" class="img-responsive, img-circle" alt="user picture"width="340" height="400">
         <br><br><br>
           <a href="home.do">
         <button type="button" class="btn btn-black btn-lg">Lets Be Better Together</button>
@@ -29,6 +29,6 @@
         	<h1>Lets Be Better Together</h1> -->
 	</div>
 	 <br><br>
-</div>
- </body>
- </html>
+	</div>
+</body>
+</html>

@@ -20,7 +20,7 @@
       display: none; 
     }
   }
-  .fa {
+  	.fa {
 		padding: 10px;
 		font-size: 25px;
 		text-align: center;
@@ -70,7 +70,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner" role="listbox" style="height:60%">
       <div class="item active">
         <img src="style/images/wealth-management.jpg" alt="Image">
         <div class="carousel-caption">
@@ -79,7 +79,7 @@
         </div>      
       </div>
 
-      <div class="item">
+      <div class="item" style="height:60%">
         <img src="style/images/self-personal-growth.jpg" alt="Image">
         <div class="carousel-caption">
           <h2>To Better Your Life</h2>
@@ -87,7 +87,7 @@
         </div>      
       </div>
 
-      <div class="item">
+      <div class="item" style="height:60%">
         <img src="style/images/healthy-lifestyle.jpg" alt="Image">
         <div class="carousel-caption">
           <h2>To Better Your Life</h2>
@@ -124,13 +124,13 @@
     </div>
     
     <div class="col-sm-4">
-      <a href=categoryPage.do?id=3> 
+      <a href=categoryPage.do?id=2> 
       <img src="style/images/mental-health-logo.png" class="img-responsive" style="width:100%" alt="Fitness">
       </a>   
     </div>
     
     <div class="col-sm-4">
-     <a href=categoryPage.do?id=2>
+     <a href=categoryPage.do?id=3>
      <img src="style/images/fitness-logo.png" class="img-responsive" style="width:100%" alt="Mental Health" >
      </a>
     </div>
