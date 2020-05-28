@@ -47,8 +47,8 @@ class EventTest {
 	void test1() {
 
 		assertNotNull(event);
-		assertEquals("Why financial literacy matters", event.getTitle());
-		assertEquals("Financial literacy cannot predict or remedy a crisis, but financial education will play a pivotal role in the economic recovery of our country.", event.getDescription());
+		assertEquals("Social Media Online Summit 2020", event.getTitle());
+		assertEquals("Social media marketing changes FAST. And that is why every year, since 2018, thousands of entrepreneurs and marketers sign up for Social Media Online Summit to lear the latest, the hottest, and what is actually working RIGHT NOW in social media marketing.", event.getDescription());
 
 	}
 	
@@ -73,6 +73,6 @@ class EventTest {
 	void test4() {
 		assertNotNull(event);
 		assertNotNull(event.getEventMentor());
-		assertEquals("Joe",  event.getEventMentor().getFirstName());
+		assertEquals("Jeff",  event.getEventMentor().getFirstName());
 	}
 }
