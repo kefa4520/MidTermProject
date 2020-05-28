@@ -104,7 +104,7 @@ a {
     <input type="text" placeholder="fun facts, experiences, what you're looking for..." name="biography" >
     
      <label for="picture"><b>insert a picture</b></label>
-    <input type="text" placeholder="insert photo URL here" name="picture" >
+    <input type="text" placeholder="https://www.popexpresso.com/wp-content/uploads/2019/03/rickastley.jpg" name="picture" >
     
     
     <input type="hidden" name="enabled" value="true">
@@ -115,9 +115,9 @@ a {
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn">Register</button>
   
-  <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-  </div>
+	  <div class="container signin">
+	    <p>Already have an account? <a href="userLogin.do">Sign in</a>.</p>
+	  </div>
 	</form>
  </div>
 </body>
