@@ -5,7 +5,8 @@ div {
 }
 footer {
     background-color: #f2f2f2;
-    padding: 25px;
+	position: absolute;
+	bottom: 0;
 }
 /*<--------------Class Selectors----------------->*/
 .img-responsive {
@@ -52,6 +53,8 @@ footer {
     padding-top: 50px;
     background-color: black;
 }
+
+
 /* .bg-no-overlay {
     background: url("https://unsplash.imgix.net/photo-1416339442236-8ceb164046f8?q=75&fm=jpg&s=8eb83df8a744544977722717b1ea4d09");
     background-repeat: no-repeat;

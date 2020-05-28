@@ -20,41 +20,7 @@
       display: none; 
     }
   }
-  	.fa {
-		padding: 10px;
-		font-size: 25px;
-		text-align: center;
-		text-decoration: none;
-/* 		margin: 5px 2px; */
-		border-radius: 35%;
-		width: 50px;
-	}
-	
-	.fa:hover {
-	    opacity: 0.7;
-	}
-	
-	.fa-facebook {
-	  background: #3B5998;
-	  color: white;
-	}
-	
-	.fa-youtube {
-	  background: #bb0000;
-	  color: white;
-	}
-	
-	.fa-instagram {
-	  background: #125688;
-	  color: white;
-	}
-	
-	.fa-snapchat-ghost {
-	  background: #fffc00;
-	  color: white;
-	  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-  
+
   </style>
   <jsp:include page="navbar.jsp"/>
 </head>
@@ -138,15 +104,15 @@
     
   </div>
 </div><br>
-<footer class="container-fluid text-center">
-  <ul style="list-style: none;">
-	<li><a href="www.facebook.com" class="fa fa-facebook"></a>
-	<a href="www.youtube.com" class="fa fa-youtube"></a>
-	<a href="www.instagram.com" class="fa fa-instagram"></a>
-	<a href="www.snapchat.com" class="fa fa-snapchat-ghost"></a></li>
-</ul>
-</footer>
 
+	<footer class="container-fluid text-center">
+		<a href="https://github.com/rwasek/MidTermProject" style="color:black" target="_blank"/>
+		<i class="fa fa-github" style="font-size:48px"></i>
+		</a>
+	</footer>
 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
