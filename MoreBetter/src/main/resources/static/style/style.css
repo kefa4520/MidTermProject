@@ -5,9 +5,8 @@ div {
 }
 footer {
     background-color: #f2f2f2;
-	position: absolute;
-	bottom: 0;
-}
+
+} 
 /*<--------------Class Selectors----------------->*/
 .img-responsive {
     border-radius: 100%;
