@@ -44,7 +44,7 @@ public class UserController {
 		} else {
 			session.setAttribute("loggedInUser", currentUser);
 			model.addAttribute("user", currentUser);
-			return "userProfileDetail";
+			return "welcome";
 		}
 	}
 
