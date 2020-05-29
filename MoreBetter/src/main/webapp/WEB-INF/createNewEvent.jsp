@@ -104,7 +104,7 @@ a {
 		    <input type="datetime-local" name="eventDate" required><br><br>
 
 		    <hr>
-		    <p>By creating an Event you agree to our <a href="#">Terms & Privacy</a>.</p>
+		    <p>By creating an Event you agree to our <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">Terms & Privacy</a>.</p>
 		    <button type="submit" class="registerbtn">Create Event</button>
 		</form>
  	  </div>

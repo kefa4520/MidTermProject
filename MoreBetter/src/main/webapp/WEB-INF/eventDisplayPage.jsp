@@ -23,7 +23,7 @@
 	<c:choose>
 	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
 
-		<div class="container-fluid">
+		<div class="container-fluid" id="eventblockdiv">
 		
 		 <h1 class="text-center" id="jumboTitle">${category.name} Event:<br>"${event.title}"</h1>
 		  <br>
@@ -103,7 +103,7 @@
 	</c:when>
 	<c:otherwise>
 	<%-----------------Regular User Below Here-------------%>
-		 <div class="container-fluid" id="eventblock">
+		 <div class="container-fluid" id="eventblockdiv">
 		
 		 <h1 class="text-center" id="jumboTitle">${category.name} Event:<br>"${event.title}"</h1>
 		  <br>

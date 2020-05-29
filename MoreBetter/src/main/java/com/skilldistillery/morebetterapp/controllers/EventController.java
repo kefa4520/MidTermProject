@@ -76,9 +76,11 @@ public class EventController {
 		ModelAndView mv = new ModelAndView();
 
 		Event newEvent = eventDao.createEvent(event, cId, mentorId);
-
+			mv.addObject("eventsByCategory", categoryDao.displayAllEventsByCategory(cId));
+			mv.addObject("category", categoryDao.findCategoryById(cId));
 			mv.addObject("event", newEvent);
-			mv.setViewName("index");    // jsp for mentor to add event
+			mv.addObject("mentor", event.getEventMentor());
+			mv.setViewName("eventDisplayPage");  
 			return mv;
 		}
 
