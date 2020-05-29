@@ -116,7 +116,7 @@
 	    	<input type="text"placeholder="enter biography"  name="biography" 	value="${user.biography}" ><br>
 	      	<label for="picture"><b>insert a picture</b></label>
 	    	<input type="text" placeholder="insert photo URL here" name="picture" value="${user.picture}" ><br>
-	    	<p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+	    	<p>By creating an account you agree to our <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">Terms & Privacy</a>.</p>
 	    	<button type="submit" class="saveProfileChangesbtn">Save Profile Changes for ${user.username}</button>
 		</form>
 	</div>

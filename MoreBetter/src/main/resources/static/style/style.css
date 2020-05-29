@@ -1,12 +1,26 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 div {
     font-family: 'Oswald', sans-serif;
 }
 footer {
-    background-color: white;
-
+    background-color: #b8b8b8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
 } 
+
+body {
+	background-color: white;
+}
 /*<--------------Class Selectors----------------->*/
 .img-responsive {
     border-radius: 100%;
@@ -19,13 +33,18 @@ footer {
     font-size: 24px;
 }
 .carousel-inner img {
-    width: 100%; /* Set width to 100% */
+    width: 60%; /* Set width to 100% */
     margin: auto;
-    min-height:200px;
+    min-height: 33%;
 }
 .eventbackground {
     height: 100%;
 }
+
+
+
+
+
 /*<--------------ID Selectors----------------->*/
 #jumboTitle {
     font-size: 100px;
@@ -41,7 +60,38 @@ footer {
 #updateEventForm {
     color: black;
 }
-.bg-overlay {
+
+#carousel-text {
+	font-size: 80px;
+	font-style: oblique;
+	font-variant: small-caps;
+	text-shadow: 3px 3px black;
+	color: black;
+}
+
+#homepage-mid {
+	font-size: 75px;
+	font-style: oblique;
+	font-variant: small-caps;
+	text-shadow: 2px 2px silver;
+	color: black;
+
+}
+
+#homepage-bottom {
+	font-size: 55px;
+	font-style: oblique;
+	font-variant: small-caps;
+	text-shadow: 2px 2px silver;
+	color: black;
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+}
+
+#eventblockdiv {
+	padding-bottom: 65px;
+}
+/* .bg-overlay {
     background: url("https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
     background-repeat: no-repeat;
     background-size: cover;
@@ -51,7 +101,7 @@ footer {
     width: 100%;
     padding-top: 50px;
     background-color: black;
-}
+} */
 
 
 /* .bg-no-overlay {

@@ -53,7 +53,7 @@
 	<c:when test="${sessionScope.loggedInUser.role == 'MENTOR'}">
  <form action="deleteArticle.do" method="POST">	
    	 <input type="hidden" name="id" value="${article.id}"/> 
-     <button type="submit" class="btn btn-danger">Delete Artickle my Pickle</button>
+     <button type="submit" class="btn btn-danger">Delete Article</button>
  
 </form>
 </c:when>
