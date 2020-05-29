@@ -37,7 +37,7 @@
 		 <form action="removeFromEvent.do" method="POST">
 	         <input type="hidden" name="uId" value="${sessionScope.loggedInUser.id}"/> 
 		     <input type="hidden" name="eId" value="${event.id}"/> 
-		        <button type="submit" class="btn btn-default">Remove ${sessionScope.loggedInUser.firstName} ${sessionScope.loggedInUser.lastName} Event</button>
+		        <button type="submit" class="btn btn-danger">Remove ${sessionScope.loggedInUser.firstName} ${sessionScope.loggedInUser.lastName} From Event</button>
 		</form>
   		</div>
 	</div>
