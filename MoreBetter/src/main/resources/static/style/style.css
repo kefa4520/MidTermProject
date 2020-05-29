@@ -1,12 +1,27 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 div {
     font-family: 'Oswald', sans-serif;
 }
 footer {
-    background-color: white;
-
+    background-color: #b8b8b8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
 } 
+
+body {
+	background-color: #a1a1a1;
+
+}
 /*<--------------Class Selectors----------------->*/
 .img-responsive {
     border-radius: 100%;
@@ -26,6 +41,11 @@ footer {
 .eventbackground {
     height: 100%;
 }
+
+
+
+
+
 /*<--------------ID Selectors----------------->*/
 #jumboTitle {
     font-size: 100px;
@@ -40,6 +60,39 @@ footer {
 }
 #updateEventForm {
     color: black;
+}
+
+#carousel-text {
+	font-size: 80px;
+	font-style: oblique;
+	font-variant: small-caps;
+	text-shadow: 3px 3px black;
+	color: #39beba;
+}
+
+#homepage-mid {
+	font-size: 75px;
+	font-style: oblique;
+	font-variant: small-caps;
+	text-shadow: 2px 2px black;
+	color: #39beba;
+	text-decoration-line: underline;
+  	text-decoration-style: double;
+}
+
+#homepage-bottom {
+	font-size: 55px;
+	font-style: oblique;
+	font-variant: small-caps;
+	text-shadow: 2px 2px black;
+	color: #39beba;
+	text-decoration-line: underline;
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+}
+
+#eventblockdiv {
+	padding-bottom: 65px;
 }
 /* .bg-overlay {
     background: url("https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");

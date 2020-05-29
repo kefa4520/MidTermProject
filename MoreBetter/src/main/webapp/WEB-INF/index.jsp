@@ -36,27 +36,25 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" style="height:60%">
+    <div class="carousel-inner" role="listbox">
       <div class="item active">
         <img src="style/images/wealth-management.jpg" alt="Image">
         <div class="carousel-caption">
-          <h2>More Resources</h2>
-          <p></p>
+          <h1 id="carousel-text">More Resources</h1>
         </div>      
       </div>
 
-      <div class="item" style="height:60%">
+      <div class="item">
         <img src="style/images/self-personal-growth.jpg" alt="Image">
         <div class="carousel-caption">
-          <h2>To Better Your Life</h2>
-          <p></p>
+          <h1 id="carousel-text">To Better Your Life</h1>
         </div>      
       </div>
 
-      <div class="item" style="height:60%">
+      <div class="item">
         <img src="style/images/healthy-lifestyle.jpg" alt="Image">
         <div class="carousel-caption">
-          <h2>To Better Your Life</h2>
+          <!-- <h2>To Better Your Life</h2> -->
           <p></p>
         </div>      
       </div>
@@ -79,15 +77,15 @@
 </div>
   
 <div class="container text-center">    
-  <h1>Our Three Pillars of Self Growth</h1><br>
   <div class="row">
+  <h1 id="homepage-mid">Our Three Pillars of Self Growth</h1><br>
   
     <div class="col-sm-4">
   	 <h1>
      <a href=categoryPage.do?id=1>
      <img src="style/images/financial-market-logo.png" class="img-responsive" style="width:100%" alt="Finance">
      <br>
-     Finance 
+     <p id="homepage-bottom">Finance<p> 
      </a>
      </h1>
     </div>
@@ -97,7 +95,7 @@
       <a href=categoryPage.do?id=2> 
       <img src="style/images/ideas-logo.png" class="img-responsive" style="width:100%" alt="Mental Health">
       <br>
-      Mental Health
+      <p id="homepage-bottom">Mental Health</p>
       </a>
       </h1>
     </div>
@@ -107,7 +105,7 @@
      <a href=categoryPage.do?id=3>
      <img src="style/images/exercise.jpg" class="img-responsive" style="width:100%" alt="Fitness" >
      <br>
-     Fitness
+     <p id="homepage-bottom">Fitness</p>
      </a>
      </h1>
     </div>
