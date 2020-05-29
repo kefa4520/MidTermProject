@@ -103,7 +103,7 @@ a {
      <label for="biography"><b>Tell Us About Yourself</b></label>
     <input type="text" placeholder="fun facts, experiences, what you're looking for..." name="biography" >
     
-     <label for="picture"><b>insert a picture</b></label>
+     <label for="picture"><b>Insert a picture</b></label>
     <input type="text" placeholder="https://www.popexpresso.com/wp-content/uploads/2019/03/rickastley.jpg" name="picture" >
     
     
@@ -115,9 +115,9 @@ a {
     <p>By creating an account you agree to our <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn">Register</button>
   
-	  <div class="container signin">
-	    <p>Already have an account? <a href="userLogin.do">Sign in</a>.</p>
-	  </div>
+	
+	<p>Already have an account? <a href="userLogin.do">Sign in</a>.</p>
+	 
 	</form>
  </div>
 </body>
