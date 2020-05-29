@@ -75,26 +75,29 @@ public class ArticleController {
 		 	mv.addObject("article", articleDao.createArticle(article, categoryId, updatedUser));	 	
 		 	
 			User refreshedUser = userDao.findUserById(updatedUser.getId());
+			Category category = categoryDao.findCategoryById(categoryId);
+
+		 	mv.addObject("category", category);
 		 	
-		 	mv.addObject("category", article.getCategory());
 		 	mv.addObject("author", refreshedUser);
 
-			mv.setViewName("redirect:articleDisplay.do"); 
+			mv.setViewName("index"); 
 			return mv;
+			
 		}
 	
 	
 	
-	@RequestMapping(path = "articleDisplay.do", method = RequestMethod.GET)
-    public ModelAndView articleDisplay(HttpSession session) {
-        ModelAndView mv = new ModelAndView();
-        User updatedUser = (User) (session.getAttribute("loggedInUser"));
-        User refreshedUser = userDao.findUserById(updatedUser.getId());
-        session.setAttribute("loggedInUser", refreshedUser);
-        mv.addObject("articles", refreshedUser.getWrittenArticles());
-        mv.setViewName("categoryDisplayPage");
-        return mv; 
-    }
+//	@RequestMapping(path = "articleDisplay.do", method = RequestMethod.GET)
+//    public ModelAndView articleDisplay(HttpSession session) {
+//        ModelAndView mv = new ModelAndView();
+//        User updatedUser = (User) (session.getAttribute("loggedInUser"));
+//        User refreshedUser = userDao.findUserById(updatedUser.getId());
+//        session.setAttribute("loggedInUser", refreshedUser);
+//        mv.addObject("articles", refreshedUser.getWrittenArticles());
+//        mv.setViewName("categoryDisplayPage");
+//        return mv; 
+//    }
 	
 
 	//------------------------------------------UPDATE ARTICLE-----------------------------------------------------//
