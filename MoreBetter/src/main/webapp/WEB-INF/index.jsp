@@ -40,14 +40,14 @@
       <div class="item active">
         <img src="style/images/wealth-management.jpg" alt="Image">
         <div class="carousel-caption">
-          <h1 id="carousel-text">More Resources</h1>
+          
         </div>      
       </div>
 
       <div class="item">
         <img src="style/images/self-personal-growth.jpg" alt="Image">
         <div class="carousel-caption">
-          <h1 id="carousel-text">To Better Your Life</h1>
+          
         </div>      
       </div>
 
@@ -78,7 +78,7 @@
   
 <div class="container text-center">    
   <div class="row">
-  <h1 id="homepage-mid">Our Three Pillars of Self Growth</h1><br>
+  <h2>Our Three Pillars of Self Growth</h2><br>
   
     <div class="col-sm-4">
   	 <h1>

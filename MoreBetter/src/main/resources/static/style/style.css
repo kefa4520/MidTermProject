@@ -19,8 +19,7 @@ footer {
 } 
 
 body {
-	background-color: #a1a1a1;
-
+	background-color: white;
 }
 /*<--------------Class Selectors----------------->*/
 .img-responsive {
@@ -67,26 +66,24 @@ body {
 	font-style: oblique;
 	font-variant: small-caps;
 	text-shadow: 3px 3px black;
-	color: #39beba;
+	color: black;
 }
 
 #homepage-mid {
 	font-size: 75px;
 	font-style: oblique;
 	font-variant: small-caps;
-	text-shadow: 2px 2px black;
-	color: #39beba;
-	text-decoration-line: underline;
-  	text-decoration-style: double;
+	text-shadow: 2px 2px silver;
+	color: black;
+
 }
 
 #homepage-bottom {
 	font-size: 55px;
 	font-style: oblique;
 	font-variant: small-caps;
-	text-shadow: 2px 2px black;
-	color: #39beba;
-	text-decoration-line: underline;
+	text-shadow: 2px 2px silver;
+	color: black;
 	margin-bottom: 20px;
 	padding-bottom: 30px;
 }
