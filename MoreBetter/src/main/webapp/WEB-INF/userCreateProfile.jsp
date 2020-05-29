@@ -112,7 +112,7 @@ a {
     
     
     <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <p>By creating an account you agree to our <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">Terms & Privacy</a>.</p>
     <button type="submit" class="registerbtn">Register</button>
   
 	  <div class="container signin">
