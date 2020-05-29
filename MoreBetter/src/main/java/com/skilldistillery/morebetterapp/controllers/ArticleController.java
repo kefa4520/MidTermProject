@@ -80,24 +80,24 @@ public class ArticleController {
 		 	mv.addObject("category", category);
 		 	
 		 	mv.addObject("author", refreshedUser);
-
-			mv.setViewName("index"); 
-			return mv;
+		 	mv.addObject("articles", refreshedUser.getWrittenArticles());
+			mv.setViewName("articleSuccess"); 
+		 	return mv;
 			
 		}
 	
 	
 	
-//	@RequestMapping(path = "articleDisplay.do", method = RequestMethod.GET)
-//    public ModelAndView articleDisplay(HttpSession session) {
-//        ModelAndView mv = new ModelAndView();
-//        User updatedUser = (User) (session.getAttribute("loggedInUser"));
-//        User refreshedUser = userDao.findUserById(updatedUser.getId());
-//        session.setAttribute("loggedInUser", refreshedUser);
-//        mv.addObject("articles", refreshedUser.getWrittenArticles());
-//        mv.setViewName("categoryDisplayPage");
-//        return mv; 
-//    }
+	@RequestMapping(path = "articleDisplay.do", method = RequestMethod.GET)
+    public ModelAndView articleDisplay(HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        User updatedUser = (User) (session.getAttribute("loggedInUser"));
+        User refreshedUser = userDao.findUserById(updatedUser.getId());
+        session.setAttribute("loggedInUser", refreshedUser);
+        mv.addObject("articles", refreshedUser.getWrittenArticles());
+        mv.setViewName("categoryDisplayPage");
+        return mv; 
+    }
 	
 
 	//------------------------------------------UPDATE ARTICLE-----------------------------------------------------//
@@ -126,7 +126,8 @@ public class ArticleController {
 		ModelAndView mv = new ModelAndView();
 		articleDao.deleteArticleById(id);
 
-		mv.setViewName("redirect:articleDisplay.do"); 
+		mv.setViewName("articleSuccessDelete"); 
+
 		return mv;
 
 	}
@@ -138,6 +139,9 @@ public class ArticleController {
 	public ModelAndView genericCategoryPage(Integer id) {
 		
 		ModelAndView mv = new ModelAndView();
+		
+		
+		
 		List<Article> articles = categoryDao.displayAllArticlesByCategory(id);
 		Category category = categoryDao.findCategoryById(id);
 		mv.addObject("category", category);
